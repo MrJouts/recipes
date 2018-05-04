@@ -12,5 +12,46 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+
+Route::get('/contacto', function () {
+    return view('contacto');
+});
+
+
+Route::get('/recetas', function () {
+    return view('recetas');
+});
+
+
+
+Route::get('/recetas', function () {
+    return view('recetas');
+});
+
+
+// Cpanel
+
+// Recetas
+
+Route::get('/cpanel/recetas', [
+	'as' => 'recetas.index',
+	'uses' => 'PaisesController@index',
+]);
+
+Route::get('/cpanel/recetas/crear', [
+	'as' => 'recetas.create',
+	'uses' => 'PaisesController@create',
+]);
+
+Route::get('/cpanel/recetas/{{receta}}', [
+	'as' => 'recetas.show',
+	'uses' => 'PaisesController@show',
+]);
+
+Route::get('/cpanel/recetas/{{receta}}/editar', [
+	'as' => 'recetas.edit',
+	'uses' => 'PaisesController@edit',
+]);
