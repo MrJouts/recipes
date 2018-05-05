@@ -38,20 +38,20 @@ Route::get('/recetas', function () {
 
 Route::get('/cpanel/recetas', [
 	'as' => 'recetas.index',
-	'uses' => 'PaisesController@index',
+	'uses' => 'RecetasController@index',
 ]);
 
 Route::get('/cpanel/recetas/crear', [
 	'as' => 'recetas.create',
-	'uses' => 'PaisesController@create',
+	'uses' => 'RecetasController@create',
 ]);
 
-Route::get('/cpanel/recetas/{{receta}}', [
+Route::get('/cpanel/recetas/{receta}', [
 	'as' => 'recetas.show',
-	'uses' => 'PaisesController@show',
+	'uses' => 'RecetasController@show',
 ]);
 
-Route::get('/cpanel/recetas/{{receta}}/editar', [
+Route::get('/cpanel/recetas/{receta}/editar', [
 	'as' => 'recetas.edit',
-	'uses' => 'PaisesController@edit',
+	'uses' => 'RecetasController@edit',
 ]);

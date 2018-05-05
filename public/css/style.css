@@ -1,0 +1,66 @@
+body {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+}
+
+h1, h2, h3, h4 {
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 14px;
+	letter-spacing: 3px;
+}
+
+.btn {
+	font-size: 13px;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 1px;
+	padding: 8px 18px;
+}
+
+.table td, 
+.table th {
+	vertical-align: middle;
+}
+
+a.acciones {
+	font-size: 12px;
+	padding: 9px 9px;
+	text-transform: lowercase;
+	width: 36px;
+	text-align: center;
+}
+
+.image {
+	text-align: center;
+}
+
+
+.custom-file-label::after {
+	content: "Buscar" !important;
+}
+
+small {
+	display: block;
+}
+
+h1.text-center::after {
+	content: "";
+	display: block;
+	border-bottom: 2px solid #ddd;
+	width: 60px;
+	position: absolute;
+	bottom: 30px;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.menu-cpanel {
+	float: left;
+	width: 270px;
+	height: 100%;
+	background-color: #ddd;
+	display: block;
+	height: 100vh;
+}

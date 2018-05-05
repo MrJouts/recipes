@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 <div class="container">
   
-  <a class="navbar-brand" href="#">Logo</a>
+  <a class="navbar-brand" href="{{ url('/') }}">Logo</a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
