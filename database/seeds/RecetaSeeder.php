@@ -13,11 +13,11 @@ class RecetaSeeder extends Seeder
     public function run()
     {
     	Receta::create([
-    		'id_receta' => 1,
     		'img_src' => 'imagen.jpg',
     		'titulo' => 'Titulo fruta',
-    		'preparacion' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum aspernatur dolor dolorem, atque velit hic eveniet aliquam omnis accusamus, eius!',
-    		'ingredientes' => 'Ingrediente  1, ingrediente 2, ingrediente 3'
+    		'preparacion' => '<p>Lorem ipsum dolor</p> <p>sit amet, consectetur adipisicing elit. Rerum aspernatur</p> dolor dolorem, atque velit hic eveniet aliquam omnis accusamus, eius!',
+    		'ingredientes' => 'Ingrediente  1, ingrediente 2, ingrediente 3',
+            'id_categoria' => '1'
     	]);
     }
   }

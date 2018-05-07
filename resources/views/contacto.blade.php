@@ -11,7 +11,7 @@ Recipes - Contacto
 		<div class="row">
 			<div class="col">
 				
-				<h1 class="text-center">Contacto</h1>
+				<h1 class="text-center m-5">Contacto</h1>
 
 			</div>
 		</div>

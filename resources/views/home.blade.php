@@ -6,12 +6,12 @@ Recipes - Home
 
 @section ('content')
 
-<section id="home-1">
+<section>
 	<div class="container">
 		<div class="row">
 			<div class="col">
 				
-				<h1 class="text-center">home</h1>
+				<h1 class="text-center m-5">home</h1>
 
 			</div>
 		</div>

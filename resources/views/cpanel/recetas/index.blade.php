@@ -6,24 +6,17 @@ Recipes - Home
 
 @section ('content')
 
+@include ('cpanel.nav')
 
-<nav class="menu-cpanel">
-	<div class="nav flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-		<a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-		<a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-		<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-		<a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
-	</div>
-</nav>
 <section>
-	<div class="container-fluid">
+	<div class="container-fluid container-cpanel">
 		<div class="row">
-			<div class="col m-auto">
+			<div class="col">
 
-				<h1 class="text-center m-4">Lista de recetas</h1>
+				<h1 class="my-4">Lista de recetas</h1>
 
 				<a href="{{ route('recetas.create') }}" class="btn btn-primary mb-4">Agregar receta</a>
-
+				
 				<table class="table">
 					<thead>
 						<tr>
@@ -36,6 +29,25 @@ Recipes - Home
 						</tr>
 					</thead>
 					<tbody>
+						
+						@foreach ($recetas as $receta)
+
+						<tr>
+							<th scope="row">1</th>
+							<td><img src="http://fillmurray.com/60/60" alt=""></td>
+							<td>{{ $receta->titulo }}</td>
+							<td>{{ $receta->created_at->diffForHumans() }}</td>
+							<td><span class="badge badge-primary">{{ $receta->categoria->nombre }}</span></td>
+							<td>
+
+								<a class="btn btn-info acciones" href="{{ url('cpanel/recetas/1') }}" role="button" data-toggle="tooltip" data-placement="top" title="Ver"><i class="far fa-eye"></i></a>
+								<a class="btn btn-dark acciones" href="#" role="button" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pencil-alt"></i></a>
+								<a class="btn btn-danger acciones" href="#" role="button" data-toggle="modal" data-placement="top" title="Eliminar" data-target="#modalEliminar"><i class="fas fa-trash"></i></a>
+							</td>
+						</tr>
+
+						@endforeach
+
 						<tr>
 							<th scope="row">1</th>
 							<td><img src="http://fillmurray.com/60/60" alt=""></td>
@@ -49,6 +61,7 @@ Recipes - Home
 								<a class="btn btn-danger acciones" href="#" role="button" data-toggle="modal" data-placement="top" title="Eliminar" data-target="#modalEliminar"><i class="fas fa-trash"></i></a>
 							</td>
 						</tr>
+
 						<tr>
 							<th scope="row">2</th>
 							<td><img src="http://fillmurray.com/60/60" alt=""></td>

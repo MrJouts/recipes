@@ -6,6 +6,8 @@ Recipes - Home
 
 @section ('content')
 
+@include('cpanel.nav')
+
 <section>
 	<div class="container">
 		<div class="row">
