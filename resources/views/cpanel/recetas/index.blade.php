@@ -39,9 +39,8 @@ Recipes - Home
 							<td>{{ $receta->created_at->diffForHumans() }}</td>
 							<td><span class="badge badge-primary">{{ $receta->categoria->nombre }}</span></td>
 							<td>
-
 								<a class="btn btn-info acciones" href="{{ url('cpanel/recetas/1') }}" role="button" data-toggle="tooltip" data-placement="top" title="Ver"><i class="far fa-eye"></i></a>
-								<a class="btn btn-dark acciones" href="#" role="button" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pencil-alt"></i></a>
+								<a class="btn btn-dark acciones" href="{{ route( 'recetas.edit', ['id' => $receta->id_receta] ) }}" role="button" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pencil-alt"></i></a>
 								<a class="btn btn-danger acciones" href="#" role="button" data-toggle="modal" data-placement="top" title="Eliminar" data-target="#modalEliminar"><i class="fas fa-trash"></i></a>
 							</td>
 						</tr>

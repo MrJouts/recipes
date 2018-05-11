@@ -44,10 +44,10 @@ class RecetasController extends Controller
     $inputData = $request->all();
 
     $request->validate(Receta::$rules, [
-        'titulo.required' => 'El título de la receta no puede estar vacío.',
-        'titulo.min' => 'El título de la receta debe tener al menos :min caracteres.',
-        'ingredientes.required' => 'Debés ingresar los ingredientes',
-        'preparacion.required' => 'Debés ingresar la preparación'
+      'titulo.required' => 'El título de la receta no puede estar vacío.',
+      'titulo.min' => 'El título de la receta debe tener al menos :min caracteres.',
+      'ingredientes.required' => 'Debés ingresar los ingredientes',
+      'preparacion.required' => 'Debés ingresar la preparación'
     ]);
 
     Receta::create($inputData);
@@ -61,9 +61,10 @@ class RecetasController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function show($id)
+  public function show(Receta $receta)
   {
-    return view('cpanel.recetas.show');
+    //$receta = Receta::find($id);
+    return view('cpanel.recetas.show', compact('receta'));
   }
 
   /**
@@ -74,7 +75,13 @@ class RecetasController extends Controller
    */
   public function edit($id)
   {
-      //
+    $receta = Receta::find($id);
+    $categorias = Categoria::all();
+
+    return view( 
+      'cpanel.recetas.edit', 
+      compact('receta', 'categorias')
+    );
   }
 
   /**
