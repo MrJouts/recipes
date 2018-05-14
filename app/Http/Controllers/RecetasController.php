@@ -46,9 +46,19 @@ class RecetasController extends Controller
     $request->validate(Receta::$rules, [
       'titulo.required' => 'El título de la receta no puede estar vacío.',
       'titulo.min' => 'El título de la receta debe tener al menos :min caracteres.',
+      'img_src.required' => 'Debés ingresar una imagen de tu receta',
       'ingredientes.required' => 'Debés ingresar los ingredientes',
       'preparacion.required' => 'Debés ingresar la preparación'
     ]);
+
+    $imagen = $request->file('img_src');
+    $nombre = $imagen->getClientOriginalName();
+
+    $destino = public_path() . '/img/';
+
+    $imagen->move($destino, $nombre);
+
+    $inputData['img_src'] = $nombre; 
 
     Receta::create($inputData);
 
@@ -93,7 +103,7 @@ class RecetasController extends Controller
    */
   public function update(Request $request, $id)
   {
-    $request->validate(Receta::$rules, [
+    $request->validate(Receta::$rules_edit, [
       'titulo.required' => 'El título de la receta no puede estar vacío.',
       'titulo.min' => 'El título de la receta debe tener al menos :min caracteres.',
       'ingredientes.required' => 'Debés ingresar los ingredientes',
@@ -101,6 +111,10 @@ class RecetasController extends Controller
     ]);
 
     $inputData = $request->input();
+
+    if ($inputData['img_src'] == null) {
+      unset($inputData['img_src']);
+    }
 
     $receta = Receta::find($id);
 

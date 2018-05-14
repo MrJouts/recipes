@@ -367,3 +367,10 @@ figure.effect-chico:hover p {
 .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
 	resize: vertical;
 }
+
+
+.img-table {
+	width: 70px;
+	display: block;
+	margin: auto;
+}

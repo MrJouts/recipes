@@ -29,5 +29,21 @@ $(function () {
   	console.error( error );
   } );
 
+  $('.form-alta').on('submit', function() {
+
+    var contenidoIngredientes = $('#ingredientes').val();
+    var contenidoPreparacion = $('#preparacion').val();
+
+    if (contenidoIngredientes == '<p>&nbsp;</p>') {
+      $('#ingredientes').val('');
+    }
+
+    if (contenidoPreparacion == '<p>&nbsp;</p>') {
+      $('#preparacion').val('');
+    }
+    
+
+  });
+
 
 })

@@ -34,7 +34,7 @@ Recipes - Home
 
 						<tr>
 							<th scope="row">{{ $receta->id_receta }}</th>
-							<td><img src="http://fillmurray.com/60/60" alt=""></td>
+							<td><img class="img-fluid img-table" src="{{ url('/img/'. $receta->img_src) }}" alt=""></td>
 							<td>{{ $receta->titulo }}</td>
 							<td>{{ $receta->created_at->diffForHumans() }}</td>
 							<td>{{ $receta->categoria->nombre }}</td>

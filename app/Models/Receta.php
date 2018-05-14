@@ -24,6 +24,13 @@ class Receta extends Model
     'preparacion' => 'required',
   ];
 
+  /** @var array Las reglas de la validación. */
+  public static $rules_edit = [
+    'titulo' => 'required|min:3',
+    'ingredientes' => 'required',
+    'preparacion' => 'required',
+  ];
+
   public function categoria()
   {
     return $this->belongsTo(Categoria::class, 'id_categoria', 'id_categoria');

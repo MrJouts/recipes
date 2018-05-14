@@ -14,7 +14,7 @@ Editar receta
 			<div class="col-7">
 
 				<div class="d-flex justify-content-between align-items-center">
-					<h1 class="my-4">Crear receta</h1>
+					<h1 class="my-4">Editar receta</h1>
 					<a href="{{ url()->previous() }}" class="btn btn-warning">
 						<i class="fas fa-angle-left"></i> Volver
 					</a>
@@ -32,17 +32,21 @@ Editar receta
 						@endif
 					</div>
 
-					<div class="form-group">
-						<label for="img_src">Elegir imagen</label>
-						<input type="file" class="form-control" id="img_src" name="img_src" placeholder="Ñoquis con bolognesa" value="{{ old('img_src', $receta->img_src) }}">
-						@if($errors->has('img_src'))
-						<small class="text-danger">{{ $errors->first('img_src') }}</small>
-						@endif
+					<p>Imagen</p>
+					<div class="row d-flex mb-3">
+						<div class="col-4">
+							<img class="img-fluid"  src="{{ url('/img/'. $receta->img_src) }}" alt="">
+						</div>
+						<div class="col-8 align-self-end">
+							
+							<label for="img_src">Elegir imagen</label>
+							<input type="file" class="form-control" id="img_src" name="img_src" placeholder="Ñoquis con bolognesa" value="{{ old('img_src', $receta->img_src) }}">
+							@if($errors->has('img_src'))
+							<small class="text-danger">{{ $errors->first('img_src') }}</small>
+							@endif
+							
+						</div>
 					</div>
-
-			    <div class="file-loading">
-            <input id="file-0a" class="file" type="file" multiple data-min-file-count="1">
-        </div>
 
 					<div class="form-group">
 						<label for="ingredientes">Ingredientes</label>
@@ -79,7 +83,7 @@ Editar receta
 
 					<div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
 						<a  href="{{ url()->previous() }}" role="button" class="btn btn-light mb-4">Cancelar</a>
-						<button type="submit" class="btn btn-primary mb-4">Crear receta</button>
+						<button type="submit" class="btn btn-primary mb-4">Guardar cambios</button>
 					</div>
 
 				</form>
@@ -88,22 +92,5 @@ Editar receta
 		</div>
 	</div>
 </section>
-
-
-<script>
-	$(document).ready(function () {
-		$("#kv-explorer").fileinput({
-			'theme': 'explorer-fa',
-			'uploadUrl': '#',
-			overwriteInitial: false,
-			initialPreviewAsData: true,
-			initialPreview: [
-			"http://lorempixel.com/1920/1080/nature/1",
-			"http://lorempixel.com/1920/1080/nature/2",
-			"http://lorempixel.com/1920/1080/nature/3"
-			]
-		});
-	});
-</script>
 
 @endsection

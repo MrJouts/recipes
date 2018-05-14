@@ -20,7 +20,7 @@ Recipes - Home
 					</a>
 				</div>
 
-				<form method="POST" action="{{ route('recetas.store') }}">
+				<form method="POST" action="{{ route('recetas.store') }}" class="form-alta" enctype="multipart/form-data">
 					@csrf
 					<div class="form-group">
 						<label for="titulo">Título</label>
@@ -76,5 +76,19 @@ Recipes - Home
 		</div>
 	</div>
 </section>
+
+<script>
+	
+
+	$('#file-es').fileinput({
+		theme: 'fa',
+		language: 'es',
+		uploadUrl: '#',
+		allowedFileExtensions: ['jpg', 'png', 'gif']
+	});
+
+</script>
+
+
 
 @endsection
