@@ -19,6 +19,7 @@ class Receta extends Model
   /** @var array Las reglas de la validación. */
   public static $rules = [
     'titulo' => 'required|min:3',
+    'img_src' => 'required',
     'ingredientes' => 'required',
     'preparacion' => 'required',
   ];

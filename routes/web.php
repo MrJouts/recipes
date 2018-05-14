@@ -41,11 +41,11 @@ Route::get('logout', [
 // Frontend
 
 Route::get('/', function () {
-    return view('home');
+	return view('home');
 });
 
 Route::get('/contacto', function () {
-    return view('contacto');
+	return view('contacto');
 });
 
 Route::get('/recetas', [
@@ -83,6 +83,10 @@ Route::get('/cpanel/recetas/{receta}/editar', [
 	'uses' => 'RecetasController@edit',
 ]);
 
+Route::put('/cpanel/recetas/{receta}/editar', [
+	'as' => 'recetas.update',
+	'uses' => 'RecetasController@update',
+]);
 
 
 // Categorías

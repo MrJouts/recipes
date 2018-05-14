@@ -21,8 +21,8 @@ Recipes - Home
 				</div>
 
 				<form method="POST" action="{{ route('recetas.store') }}">
+					@csrf
 					<div class="form-group">
-						@csrf
 						<label for="titulo">Título</label>
 						<input type="text" class="form-control" id="titulo" name="titulo" placeholder="Ñoquis con bolognesa" value="{{ old('titulo') }}">
 						@if($errors->has('titulo'))
@@ -30,20 +30,17 @@ Recipes - Home
 						@endif
 					</div>
 
-					<p>Elegir imagen</p>
-					<div class="input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text">Subir imagen</span>
-						</div>
-						<div class="custom-file">
-							<input type="file" class="custom-file-input" id="img_src" name="img_src">
-							<label class="custom-file-label" for="img_src">Elegir imagen</label>
-						</div>
+					<div class="form-group">
+						<label for="img_src">Elegir imagen</label>
+						<input type="file" class="form-control" id="img_src" name="img_src" placeholder="Ñoquis con bolognesa" value="{{ old('img_src') }}">
+						@if($errors->has('img_src'))
+						<small class="text-danger">{{ $errors->first('img_src') }}</small>
+						@endif
 					</div>
 
 					<div class="form-group">
 						<label for="ingredientes">Ingredientes</label>
-						<textarea class="form-control" name="ingredientes" id="ingredientes" cols="30" rows="5" value="{{ old('ingredientes') }}"></textarea>
+						<textarea class="form-control" name="ingredientes" id="ingredientes" cols="30" rows="5">{{ old('ingredientes') }}</textarea>
 						@if($errors->has('ingredientes'))
 						<small class="text-danger">{{ $errors->first('ingredientes') }}</small>
 						@endif
@@ -51,7 +48,7 @@ Recipes - Home
 
 					<div class="form-group">
 						<label for="preparacion">Preparación</label>
-						<textarea class="form-control" name="preparacion" id="preparacion" cols="30" rows="10" value="{{ old('preparacion') }}"></textarea>
+						<textarea class="form-control" name="preparacion" id="preparacion" cols="30" rows="10">{{ old('preparacion') }}</textarea>
 						@if($errors->has('preparacion'))
 						<small class="text-danger">{{ $errors->first('preparacion') }}</small>
 						@endif

@@ -33,13 +33,13 @@ Recipes - Home
 						@foreach ($recetas as $receta)
 
 						<tr>
-							<th scope="row">1</th>
+							<th scope="row">{{ $receta->id_receta }}</th>
 							<td><img src="http://fillmurray.com/60/60" alt=""></td>
 							<td>{{ $receta->titulo }}</td>
 							<td>{{ $receta->created_at->diffForHumans() }}</td>
-							<td><span class="badge badge-primary">{{ $receta->categoria->nombre }}</span></td>
+							<td>{{ $receta->categoria->nombre }}</td>
 							<td>
-								<a class="btn btn-info acciones" href="{{ url('cpanel/recetas/1') }}" role="button" data-toggle="tooltip" data-placement="top" title="Ver"><i class="far fa-eye"></i></a>
+								<a class="btn btn-info acciones" href="{{ url('cpanel/recetas/' . $receta->id_receta) }}" role="button" data-toggle="tooltip" data-placement="top" title="Ver"><i class="far fa-eye"></i></a>
 								<a class="btn btn-dark acciones" href="{{ route( 'recetas.edit', ['id' => $receta->id_receta] ) }}" role="button" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pencil-alt"></i></a>
 								<a class="btn btn-danger acciones" href="#" role="button" data-toggle="modal" data-placement="top" title="Eliminar" data-target="#modalEliminar"><i class="fas fa-trash"></i></a>
 							</td>
@@ -47,68 +47,6 @@ Recipes - Home
 
 						@endforeach
 
-						<tr>
-							<th scope="row">1</th>
-							<td><img src="http://fillmurray.com/60/60" alt=""></td>
-							<td>Quinoa con queso de oveja, puré de berenjenas y tomates asados</td>
-							<td>26 de Mayo de 2018</td>
-							<td><span class="badge badge-primary">Entradas</span></td>
-							<td>
-
-								<a class="btn btn-info acciones" href="{{ url('cpanel/recetas/1') }}" role="button" data-toggle="tooltip" data-placement="top" title="Ver"><i class="far fa-eye"></i></a>
-								<a class="btn btn-dark acciones" href="#" role="button" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pencil-alt"></i></a>
-								<a class="btn btn-danger acciones" href="#" role="button" data-toggle="modal" data-placement="top" title="Eliminar" data-target="#modalEliminar"><i class="fas fa-trash"></i></a>
-							</td>
-						</tr>
-
-						<tr>
-							<th scope="row">2</th>
-							<td><img src="http://fillmurray.com/60/60" alt=""></td>
-							<td>Rosca de Reyes</td>
-							<td>14 de Mayo de 2018</td>
-							<td><span class="badge badge-danger">Postres</span></td>
-							<td>
-								<a class="btn btn-info acciones" href="#" role="button"><i class="far fa-eye"></i></a>
-								<a class="btn btn-dark acciones" href="#" role="button"><i class="fas fa-pencil-alt"></i></a>
-								<a class="btn btn-danger acciones" href="#" role="button"><i class="fas fa-trash"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">3</th>
-							<td><img src="http://fillmurray.com/60/60" alt=""></td>
-							<td>Rueda de achuras</td>
-							<td>4 de Mayo de 2018</td>
-							<td><span class="badge badge-warning">Platos principales</span></td>
-							<td>
-								<a class="btn btn-info acciones" href="#" role="button"><i class="far fa-eye"></i></a>
-								<a class="btn btn-dark acciones" href="#" role="button"><i class="fas fa-pencil-alt"></i></a>
-								<a class="btn btn-danger acciones" href="#" role="button"><i class="fas fa-trash"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">4</th>
-							<td><img src="http://fillmurray.com/60/60" alt=""></td>
-							<td>Flan al puro huevo con caramelo a seco</td>
-							<td>1 de Mayo de 2018</td>
-							<td><span class="badge badge-success">Dulces</span></td>
-							<td>
-								<a class="btn btn-info acciones" href="#" role="button"><i class="far fa-eye"></i></a>
-								<a class="btn btn-dark acciones" href="#" role="button"><i class="fas fa-pencil-alt"></i></a>
-								<a class="btn btn-danger acciones" href="#" role="button"><i class="fas fa-trash"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">5</th>
-							<td><img src="http://fillmurray.com/60/60" alt=""></td>
-							<td>Wok de salmón</td>							
-							<td>29 de Abril de 2018</td>
-							<td><span class="badge badge-warning">Platos principales</span></td>
-							<td>
-								<a class="btn btn-info acciones" href="#" role="button"><i class="far fa-eye"></i></a>
-								<a class="btn btn-dark acciones" href="#" role="button"><i class="fas fa-pencil-alt"></i></a>
-								<a class="btn btn-danger acciones" href="#" role="button"><i class="fas fa-trash"></i></a>
-							</td>
-						</tr>
 					</tbody>
 				</table>
 

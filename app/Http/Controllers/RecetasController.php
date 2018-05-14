@@ -93,7 +93,22 @@ class RecetasController extends Controller
    */
   public function update(Request $request, $id)
   {
-      //
+    $request->validate(Receta::$rules, [
+      'titulo.required' => 'El título de la receta no puede estar vacío.',
+      'titulo.min' => 'El título de la receta debe tener al menos :min caracteres.',
+      'ingredientes.required' => 'Debés ingresar los ingredientes',
+      'preparacion.required' => 'Debés ingresar la preparación'
+    ]);
+
+    $inputData = $request->input();
+
+    $receta = Receta::find($id);
+
+    $receta->update($inputData);
+
+    return redirect()->route('recetas.index')
+    ->with('status', 'La receta ' . $receta->nombre . ' fue editada exitosamente.');
+
   }
 
   /**
