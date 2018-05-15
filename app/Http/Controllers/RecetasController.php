@@ -52,6 +52,7 @@ class RecetasController extends Controller
     ]);
 
     $imagen = $request->file('img_src');
+
     $nombre = $imagen->getClientOriginalName();
 
     $destino = public_path() . '/img/';
@@ -62,7 +63,8 @@ class RecetasController extends Controller
 
     Receta::create($inputData);
 
-    return redirect()->route('recetas.index');
+    return redirect()->route('recetas.index')
+    ->with('status', 'La receta <b>' . $inputData['titulo'] . '</b> fue creada exitosamente.');
   }
 
   /**
@@ -121,8 +123,21 @@ class RecetasController extends Controller
     $receta->update($inputData);
 
     return redirect()->route('recetas.index')
-    ->with('status', 'La receta ' . $receta->nombre . ' fue editada exitosamente.');
+    ->with('status', 'La receta <b>' . $receta->titulo . '</b> fue editada exitosamente.');
 
+  }
+
+  /**
+   * Confirm removing the specified resource from storage.
+   *
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function confirmDestroy($id)
+  {
+    $receta = Receta::find($id);
+
+    return view('cpanel.recetas.confirm-destroy', compact('receta'));
   }
 
   /**
@@ -133,7 +148,19 @@ class RecetasController extends Controller
    */
   public function destroy($id)
   {
-      //
+
+    $receta = Receta::find($id);
+
+    $nombre = $receta->img_src;
+
+    $imagen = public_path() . '/img/' . $nombre;
+
+    \File::delete($imagen);
+
+    $receta->delete();
+
+    return redirect()->route('recetas.index')
+    ->with('status', 'La receta <b>' . $receta->titulo . '</b> fue eliminada exitosamente.');
   }
 
   /**

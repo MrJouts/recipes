@@ -20,15 +20,15 @@ Editar receta
 					</a>
 				</div>
 
-				<form method="POST" action="{{ route('recetas.edit' , ['id' => $receta->id_receta] ) }}">
+				<form method="POST" action="{{ route('recetas.update' , ['id' => $receta->id_receta] ) }}">
 					@csrf
 					@method('PUT')
 					<div class="form-group">
 
 						<label for="titulo">Título</label>
 						<input type="text" class="form-control" id="titulo" name="titulo" placeholder="Ñoquis con bolognesa" value="{{ old('titulo', $receta->titulo) }}">
-						@if($errors->has('titulo'))
-						<small class="text-danger">{{ $errors->first('titulo') }}</small>
+						@if($errors->has('nombre'))
+						<small class="text-danger">{{ $errors->first('nombre') }}</small>
 						@endif
 					</div>
 

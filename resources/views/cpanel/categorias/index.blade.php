@@ -16,9 +16,15 @@ Recipes - Categorías
 			<div class="col">
 				<h1 class="my-4">Lista de categorías</h1>
 				
+				@if(Session::has('status'))			
+				@component('components.alert', ['tipo' => 'success'])
+				{!! Session::get('status') !!}
+				@endcomponent
+				@endif
 			</div>
 		</div>
 		<div class="row">
+			
 
 			<div class="col-4">
 				<form method="POST" action="{{ route('categorias.store') }}">
@@ -26,6 +32,9 @@ Recipes - Categorías
 					<div class="form-group">
 						<label for="nombre">Nombre</label>
 						<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Postres">
+						@if($errors->has('nombre'))
+						<small class="text-danger">{{ $errors->first('nombre') }}</small>
+						@endif
 					</div>
 
 					<button type="submit" class="btn btn-primary">Crear categoría</button>
@@ -45,46 +54,20 @@ Recipes - Categorías
 					<tbody>
 
 						@foreach($categorias as $categoria)
-							
+
 						<tr>
 							<th scope="row">1</th>
 							<td>{{ $categoria->nombre }}</td>
 							<td>
-								<a class="btn btn-info acciones" href="{{ url('cpanel/recetas/1') }}" role="button" data-toggle="tooltip" data-placement="top" title="Ver"><i class="far fa-eye"></i></a>
-								<a class="btn btn-dark acciones" href="#" role="button" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pencil-alt"></i></a>
-								<a class="btn btn-danger acciones" href="#" role="button" data-toggle="modal" data-placement="top" title="Eliminar" data-target="#modalEliminar"><i class="fas fa-trash"></i></a>
+								
+								<a class="btn btn-dark acciones" href="{{ route( 'categorias.edit', ['id' => $categoria->id_categoria] ) }}" role="button" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pencil-alt"></i></a>
+
+								<a class="btn btn-danger acciones" href="{{ route( 'categorias.confirmDestroy', ['id' => $categoria->id_categoria] ) }}" role="button" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fas fa-trash"></i></a>
 							</td>
 						</tr>
 						
 						@endforeach
 
-						<tr>
-							<th scope="row">1</th>
-							<td>Postres</td>
-							<td>
-								<a class="btn btn-info acciones" href="{{ url('cpanel/recetas/1') }}" role="button" data-toggle="tooltip" data-placement="top" title="Ver"><i class="far fa-eye"></i></a>
-								<a class="btn btn-dark acciones" href="#" role="button" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pencil-alt"></i></a>
-								<a class="btn btn-danger acciones" href="#" role="button" data-toggle="modal" data-placement="top" title="Eliminar" data-target="#modalEliminar"><i class="fas fa-trash"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">1</th>
-							<td>Plato principal</td>
-							<td>
-								<a class="btn btn-info acciones" href="{{ url('cpanel/recetas/1') }}" role="button" data-toggle="tooltip" data-placement="top" title="Ver"><i class="far fa-eye"></i></a>
-								<a class="btn btn-dark acciones" href="#" role="button" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pencil-alt"></i></a>
-								<a class="btn btn-danger acciones" href="#" role="button" data-toggle="modal" data-placement="top" title="Eliminar" data-target="#modalEliminar"><i class="fas fa-trash"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">1</th>
-							<td>Tartas</td>
-							<td>
-								<a class="btn btn-info acciones" href="{{ url('cpanel/recetas/1') }}" role="button" data-toggle="tooltip" data-placement="top" title="Ver"><i class="far fa-eye"></i></a>
-								<a class="btn btn-dark acciones" href="#" role="button" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pencil-alt"></i></a>
-								<a class="btn btn-danger acciones" href="#" role="button" data-toggle="modal" data-placement="top" title="Eliminar" data-target="#modalEliminar"><i class="fas fa-trash"></i></a>
-							</td>
-						</tr>
 					</tbody>
 				</table>
 			</div>

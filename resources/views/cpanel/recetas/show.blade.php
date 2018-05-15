@@ -11,7 +11,7 @@ Recipes - Home
 <section>
 	<div class="container-fluid container-cpanel">
 		<div class="row">
-			<div class="col-8">
+			<div class="col-6">
 
 				<h1 class="my-4">Ver receta<small>En esta seccion podras ver todas tus recetas</small></h1>
 				

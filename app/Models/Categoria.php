@@ -13,7 +13,7 @@ class Categoria extends Model
 	protected $primaryKey = "id_categoria";
 
 	/** @var array Los campos que se pueden cargar de manera masiva. */
-	protected $fillable = ['nombre', 'genero', 'precio', 'anio_estreno'];
+	protected $fillable = ['nombre'];
 
 	/** @var array Las reglas de la validación. */
 	public static $rules = [

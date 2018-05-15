@@ -39,7 +39,7 @@ class CategoriasController extends Controller
     $inputData = $request->all();
 
     $request->validate(Categoria::$rules, [
-        'nombre.required' => 'El nombre de la categoría no puede estar vacío.'
+      'nombre.required' => 'El nombre de la categoría no puede estar vacío.'
     ]);
 
     Categoria::create($inputData);
@@ -66,7 +66,12 @@ class CategoriasController extends Controller
    */
   public function edit($id)
   {
-      //
+    $categoria = Categoria::find($id);
+
+    return view( 
+      'cpanel.categorias.edit', 
+      compact('categoria')
+    );
   }
 
   /**
@@ -78,7 +83,18 @@ class CategoriasController extends Controller
    */
   public function update(Request $request, $id)
   {
-      //
+    $request->validate(Categoria::$rules, [
+      'nombre.required' => 'El nombre de la categoría no puede estar vacío.'
+    ]);
+
+    $inputData = $request->input();
+
+    $categoria = Categoria::find($id);
+
+    $categoria->update($inputData);
+
+    return redirect()->route('categorias.index')
+    ->with('status', 'La categoria <b>' . $categoria->nombre . '</b> fue editada exitosamente.');
   }
 
   /**

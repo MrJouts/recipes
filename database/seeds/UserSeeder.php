@@ -12,10 +12,20 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        User::create([
+            'name' => 'Emiliano',
+            'email' => 'emi@davinci.com',
+            'password' => \Hash::make('123123')
+        ]);
+        User::create([
+            'name' => 'Santiago',
+            'email' => 'santi@davinci.com',
+            'password' => \Hash::make('123456')
+        ]);
     	User::create([
-    		'name' => 'Emiliano',
-    		'email' => 'emi@bronto.com',
-    		'password' => \Hash::make('123123')
+    		'name' => 'Francis',
+    		'email' => 'fran@davinci.com',
+    		'password' => \Hash::make('123321')
     	]);
     }
 }

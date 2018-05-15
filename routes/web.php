@@ -88,6 +88,16 @@ Route::put('/cpanel/recetas/{receta}/editar', [
 	'uses' => 'RecetasController@update',
 ]);
 
+Route::get('/cpanel/recetas/{receta}/eliminar', [
+	'as' => 'recetas.confirmDestroy',
+	'uses' => 'RecetasController@confirmDestroy',
+]);
+
+Route::delete('/cpanel/recetas/{receta}/eliminar', [
+	'as' => 'recetas.destroy',
+	'uses' => 'RecetasController@destroy',
+]);
+
 
 // Categorías
 
@@ -99,6 +109,26 @@ Route::get('/cpanel/categorias', [
 Route::post('/cpanel/categorias/crear', [
 	'as' => 'categorias.store',
 	'uses' => 'CategoriasController@store',
+]);
+
+Route::get('/cpanel/categorias/{categoria}/editar', [
+	'as' => 'categorias.edit',
+	'uses' => 'CategoriasController@edit',
+]);
+
+Route::put('/cpanel/categorias/{categoria}/editar', [
+	'as' => 'categorias.update',
+	'uses' => 'CategoriasController@update',
+]);
+
+Route::get('/cpanel/categorias/{categoria}/eliminar', [
+	'as' => 'categorias.confirmDestroy',
+	'uses' => 'CategoriasController@confirmDestroy',
+]);
+
+Route::delete('/cpanel/categorias/{categoria}/eliminar', [
+	'as' => 'categorias.destroy',
+	'uses' => 'CategoriasController@destroy',
 ]);
 
 

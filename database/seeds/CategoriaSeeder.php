@@ -13,40 +13,31 @@ class CategoriaSeeder extends Seeder
     public function run()
     {
         Categoria::create([
-            'nombre' => 'Pastas',
-            'img_src' => 'pastas.jpg'
+            'nombre' => 'Pastas'
         ]);
         Categoria::create([
-            'nombre' => 'Pizzas',
-            'img_src' => 'pizza.jpg'
+            'nombre' => 'Pizzas'
         ]);
         Categoria::create([
-            'nombre' => 'Carnes',
-            'img_src' => 'carne.jpg'
+            'nombre' => 'Carnes'
         ]);
         Categoria::create([
-            'nombre' => 'Sopas',
-            'img_src' => 'sopa.jpg'
+            'nombre' => 'Sopas'
         ]);
         Categoria::create([
-            'nombre' => 'Tartas',
-            'img_src' => 'tarta.jpg'
+            'nombre' => 'Tartas'
         ]);
         Categoria::create([
-            'nombre' => 'Postres',
-            'img_src' => 'postre.jpg'
+            'nombre' => 'Postres'
         ]);
         Categoria::create([
-            'nombre' => 'Ensaladas',
-            'img_src' => 'ensalada.jpg'
+            'nombre' => 'Ensaladas'
         ]);
         Categoria::create([
-            'nombre' => 'Asiatico',
-            'img_src' => 'sushi.jpg'
+            'nombre' => 'Asiatico'
         ]);
     	Categoria::create([
-    		'nombre' => 'Pollo',
-            'img_src' => 'pollo.jpg'
+    		'nombre' => 'Pollo'
     	]);
     }
 }
