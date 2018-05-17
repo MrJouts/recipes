@@ -1,7 +1,7 @@
 @extends ('cpanel.master')
 
 @section ('title')
-Editar categoría
+Catchef - Cpanel - Editar categoría
 @endsection
 
 @section ('content')

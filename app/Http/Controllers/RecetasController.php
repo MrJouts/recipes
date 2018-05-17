@@ -159,8 +159,8 @@ class RecetasController extends Controller
 
     $receta->delete();
 
-    return redirect()->route('recetas.index')
-    ->with('status', 'La receta <b>' . $receta->titulo . '</b> fue eliminada exitosamente.');
+    return redirect()->route('categorias.index')
+    ->with('status', 'La categoría <b>' . $categoria->nombre . '</b> fue eliminada exitosamente.');
   }
   
 }

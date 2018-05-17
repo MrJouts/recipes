@@ -1,7 +1,7 @@
 @extends ('cpanel.master')
 
 @section ('title')
-Recipes - Home
+Catchef - Cpanel - Recetas
 @endsection
 
 @section ('content')
@@ -44,9 +44,9 @@ Recipes - Home
 							<td>{{ $receta->created_at->format('jS \d\e F Y') }}</td>
 							<td>{{ $receta->categoria->nombre }}</td>
 							<td>
-								<a class="btn btn-info acciones" href="{{ route( 'recetas.show', ['id' => $receta->id_receta] ) }}" role="button" data-toggle="tooltip" data-placement="top" title="Ver"><i class="far fa-eye"></i></a>
-								<a class="btn btn-dark acciones" href="{{ route( 'recetas.edit', ['id' => $receta->id_receta] ) }}" role="button" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pencil-alt"></i></a>
-								<a class="btn btn-danger acciones" href="{{ route( 'recetas.confirmDestroy', ['id' => $receta->id_receta] ) }}" role="button" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fas fa-trash"></i></a>
+								<a class="btn btn-primary acciones" href="{{ route( 'recetas.show', ['id' => $receta->id_receta] ) }}" role="button" data-toggle="tooltip" data-placement="top" title="Ver"><i class="far fa-eye"></i></a>
+								<a class="btn btn-primary acciones" href="{{ route( 'recetas.edit', ['id' => $receta->id_receta] ) }}" role="button" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pencil-alt"></i></a>
+								<a class="btn btn-primary acciones" href="{{ route( 'recetas.confirmDestroy', ['id' => $receta->id_receta] ) }}" role="button" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fas fa-trash"></i></a>
 							</td>
 						</tr>
 

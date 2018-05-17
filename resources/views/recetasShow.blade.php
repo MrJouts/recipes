@@ -31,12 +31,12 @@ Catchef - {{ $receta->titulo }}
 			</div>
 
 			<div class="col-8">
-
 				<div class="preparacion">
 					<h2 class="mb-4">Preparación</h2>
 					{!! $receta->preparacion !!}
 				</div>
-
+				
+				<a class="btn btn-primary" href="{{ url('/recetas') }}">Ver más recetas</a>
 			</div>
 
 		</div>

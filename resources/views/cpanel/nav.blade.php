@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="cpanel navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <div class="wrapper-brand active">
       
@@ -6,7 +6,7 @@
       <i class="fas fa-bars"></i>
       @endif
 
-      <a class="navbar-brand" href="{{ url('/') }}">
+      <a class="navbar-brand" href="{{ url('/cpanel/recetas ') }}">
         <i class="fab fa-github"></i>  <b>CAT</b>Chef
       </a>
     </div>

@@ -1,7 +1,7 @@
 @extends ('layouts.master')
 
 @section ('title')
-Recipes - Recetas
+Catchef - Recetas
 @endsection
 
 @section ('content')
@@ -23,7 +23,7 @@ Recipes - Recetas
 			<div class="col-4 mb-4">	
 				<div class="card">
 				<div class="grid">
-					<a href="{{ route( 'recetas.showFront', ['id' => $receta->id_receta] ) }}">
+					<a href="{{ route( 'recetas.showFrontRecetas', ['id' => $receta->id_receta] ) }}">
 					<figure class="effect-chico">
 						<img src="{{ url('/img/'. $receta->img_src) }}" alt="{{ $receta->titulo}}"/>			
 					</figure>

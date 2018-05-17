@@ -18,7 +18,7 @@ class FrontController extends Controller
   {
     Carbon::setLocale('es');
     $recetas = Receta::with('categoria')->latest()->get();
-    return view('recetas', compact('recetas','categorias'));
+    return view('recetas', compact('recetas'));
   }
 
   /**
@@ -27,13 +27,48 @@ class FrontController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function showFront(Receta $receta)
+  public function showFrontRecetas(Receta $receta)
   {
-    //$receta = Receta::find($id);
     $categorias = Categoria::all();
     return view('recetasShow', compact('receta', 'categorias'));
   }
+
+  /**
+   * Display the specified resource.
+   *
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function showFrontHome(Receta $receta)
+  {
+    Carbon::setLocale('es');
+    $ultimasRecetas = Receta::with('categoria')->latest()->take(3)->get();
+    $recetasPopulares = Receta::with('categoria')->first()->take(4)->get();
+    $recetaDelDia = Receta::with('categoria')->find(9);
+    $categorias = Categoria::all();
+
+    //dd($categorias);
+
+    return view('home', compact('ultimasRecetas', 'recetasPopulares', 'recetaDelDia', 'categorias'));
+  }
+
+  /**
+   * Display the specified resource.
+   *
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function footer(Receta $receta)
+  {
+    Carbon::setLocale('es');
+    $ultimasRecetas = Receta::with('categoria')->latest()->take(3)->get();
+    $recetasPopulares = Receta::with('categoria')->first()->take(4)->get();
+    $recetaDelDia = Receta::with('categoria')->find(9);
+    $categorias = Categoria::all();
+
+    //dd($categorias);
+
+    return view('home', compact('ultimasRecetas', 'recetasPopulares', 'recetaDelDia', 'categorias'));
+  }
+
 }
-
-
-

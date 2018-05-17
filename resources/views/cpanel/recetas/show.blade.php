@@ -1,7 +1,7 @@
 @extends ('cpanel.master')
 
 @section ('title')
-Recipes - {{ $receta->titulo }}
+Catchef - {{ $receta->titulo }}
 @endsection
 
 @section ('content')

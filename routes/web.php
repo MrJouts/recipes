@@ -40,13 +40,10 @@ Route::get('logout', [
 
 // Frontend
 
-Route::get('/', function () {
-	return view('home');
-});
-
-Route::get('/contacto', function () {
-	return view('contacto');
-});
+Route::get('/', [
+	'as' => 'recetas.showFrontHome',
+	'uses' => 'FrontController@showFrontHome',
+]);
 
 Route::get('/recetas', [
 	'as' => 'recetas',
@@ -54,9 +51,14 @@ Route::get('/recetas', [
 ]);
 
 Route::get('/recetas/{receta}', [
-	'as' => 'recetas.showFront',
-	'uses' => 'FrontController@showFront',
+	'as' => 'recetas.showFrontRecetas',
+	'uses' => 'FrontController@showFrontRecetas',
 ]);
+
+Route::get('/contacto', function () {
+	return view('contacto');
+});
+
 
 // Cpanel
 

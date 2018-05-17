@@ -1,7 +1,7 @@
 @extends ('cpanel.master')
 
 @section ('title')
-Recipes - Home
+Catchef - Cpanel - Agregar receta
 @endsection
 
 @section ('content')

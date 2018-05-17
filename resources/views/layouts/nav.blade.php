@@ -1,21 +1,19 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <div class="wrapper-brand active">
+  <div class="container">
 
       <a class="navbar-brand" href="{{ url('/') }}">
         <i class="fab fa-github"></i>  <b>CAT</b>Chef
       </a>
-    </div>
 
     <div class="collapse navbar-collapse" id="menu">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
           <a class="nav-link" href="{{ url('/') }}">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{ Request::is('recetas') ? 'active' : '' }}">
           <a class="nav-link" href="{{ url('/recetas') }}">Recetas</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{ Request::is('contacto') ? 'active' : '' }}">
           <a class="nav-link" href="{{ url('/contacto') }}">Contacto</a>
         </li>
       </ul>

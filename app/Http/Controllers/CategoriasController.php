@@ -77,6 +77,19 @@ class CategoriasController extends Controller
   }
 
   /**
+   * Confirm removing the specified resource from storage.
+   *
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function confirmDestroy($id)
+  {
+    $categoria = Categoria::find($id);
+
+    return view('cpanel.categorias.confirm-destroy', compact('categoria'));
+  }
+
+  /**
    * Remove the specified resource from storage.
    *
    * @param  int  $id
@@ -84,6 +97,13 @@ class CategoriasController extends Controller
    */
   public function destroy($id)
   {
-      //
+
+    $categoria = Categoria::find($id);
+
+    $categoria->delete();
+
+    return redirect()->route('categorias.index')
+    ->with('status', 'La categoria <b>' . $categoria->nombre . '</b> fue eliminada exitosamente.');
   }
+
 }

@@ -1,7 +1,7 @@
 @extends ('layouts.master')
 
 @section ('title')
-Recipes - Contacto
+Catchef - Contacto
 @endsection
 
 @section ('content')
@@ -21,11 +21,10 @@ Recipes - Contacto
 				<img class="img-fluid" src="{{ url('/img/cat-chef.jpg') }}" alt="cat chef"/>
 			</div>
 			<div class="col-6">
-				<h2>Lorem ipsum dolor.</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora error sapiente libero explicabo doloribus rerum dolore pariatur reiciendis autem! Doloribus soluta possimus repellat adipisci eius nostrum quo, dolore, porro eaque, expedita natus perferendis saepe. Dignissimos nobis voluptatum dolore impedit nihil.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos repellendus accusantium id possimus expedita nisi temporibus ullam dolor accusamus, ipsum, ad laboriosam dolores tempore quae iure debitis. Cumque, magni, reprehenderit!</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis qui perferendis quibusdam, quasi, porro sit.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel earum deleniti debitis saepe, autem aliquid!</p>
+				<h2 class="mb-3">Una comunidad diferente, igual a vos</h2>
+				<p>La gastronomía de Argentina combina influjos de la comida criolla, la nativa (a la cual pertenecen el mate y la mayoría de las comidas elaboradas con maíz, porotos, papa y/o mandioca como base principal), la africana subsahariana, la española y la italiana.</p>
+				<p>Un factor determinante para su gastronomía es que Argentina resulta ser uno de los mayores productores agrícolas del planeta. Es un gran productor de trigo, poroto, choclo o maíz, carne (en especial vacuna), leche y, desde los años 1970, también gran productor de soja, aunque esta leguminosa no ha logrado la aceptación popular.</p>
+				<p>De modo semejante, las enormes producciones trigueras hacen que el pan más común sea el pan blanco de harina de trigo y explican en gran medida el éxito de ciertas comidas de origen italiano que la utilizan.</p>
 			</div>
 		</div>
 
@@ -49,6 +48,7 @@ Recipes - Contacto
 				</form>
 			</div>
 		</div>
+		
 	</div>
 </section>
 

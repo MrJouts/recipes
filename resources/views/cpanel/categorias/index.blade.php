@@ -1,7 +1,7 @@
 @extends ('cpanel.master')
 
 @section ('title')
-Recipes - Categorías
+Catchef - Cpanel - Categorías
 @endsection
 
 @section ('content')
@@ -57,9 +57,9 @@ Recipes - Categorías
 							<td>{{ $categoria->nombre }}</td>
 							<td>
 								
-								<a class="btn btn-dark acciones" href="{{ route( 'categorias.edit', ['id' => $categoria->id_categoria] ) }}" role="button" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pencil-alt"></i></a>
+								<a class="btn btn-primary acciones" href="{{ route( 'categorias.edit', ['id' => $categoria->id_categoria] ) }}" role="button" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pencil-alt"></i></a>
 
-								<a class="btn btn-danger acciones" href="{{ route( 'categorias.confirmDestroy', ['id' => $categoria->id_categoria] ) }}" role="button" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fas fa-trash"></i></a>
+								<a class="btn btn-primary acciones" href="{{ route( 'categorias.confirmDestroy', ['id' => $categoria->id_categoria] ) }}" role="button" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fas fa-trash"></i></a>
 							</td>
 						</tr>
 						
