@@ -27,7 +27,7 @@ Recipes - Home
 							<th scope="col">#</th>
 							<th class="image" scope="col"><i class="far fa-image"></i></th>
 							<th scope="col">Título</th>
-							<th scope="col">Creado el</th>
+							<th scope="col">Fecha de creación</th>
 							<th scope="col">Categoría</th>
 							<th scope="col">Acciones</th>
 						</tr>
@@ -40,7 +40,8 @@ Recipes - Home
 							<th scope="row">{{ $receta->id_receta }}</th>
 							<td><img class="img-fluid img-table" src="{{ url('/img/'. $receta->img_src) }}" alt=""></td>
 							<td>{{ $receta->titulo }}</td>
-							<td>{{ $receta->created_at->diffForHumans() }}</td>
+							{{-- <td>{{ $receta->created_at->diffForHumans() }}</td> --}}
+							<td>{{ $receta->created_at->format('jS \d\e F Y') }}</td>
 							<td>{{ $receta->categoria->nombre }}</td>
 							<td>
 								<a class="btn btn-info acciones" href="{{ route( 'recetas.show', ['id' => $receta->id_receta] ) }}" role="button" data-toggle="tooltip" data-placement="top" title="Ver"><i class="far fa-eye"></i></a>

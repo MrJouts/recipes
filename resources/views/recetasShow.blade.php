@@ -6,7 +6,7 @@ Catchef - {{ $receta->titulo }}
 
 @section ('content')
 
-<section id="recetas-1">
+<section id="recetas-single">
 	<div class="container py-5">
 
 		<div class="row d-flex align-items-center">

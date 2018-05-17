@@ -6,12 +6,12 @@ Recipes - Recetas
 
 @section ('content')
 
-<section id="recetas-1">
+<section id="recetas">
 	<div class="container">
 		<div class="row">
 			<div class="col">
 				
-				<h1 class="text-center m-5">Recetas</h1>
+				<h1 class="text-center m-5 title">Recetas</h1>
 
 			</div>
 		</div>
@@ -25,13 +25,17 @@ Recipes - Recetas
 				<div class="grid">
 					<a href="{{ route( 'recetas.showFront', ['id' => $receta->id_receta] ) }}">
 					<figure class="effect-chico">
-						<img src="{{ url('/img/'. $receta->img_src) }}" alt="img15"/>			
+						<img src="{{ url('/img/'. $receta->img_src) }}" alt="{{ $receta->titulo}}"/>			
 					</figure>
 				</a>
 				</div>
 					<div class="card-body">
 						<span class="badge badge-primary">{{ $receta->categoria->nombre }}</span>
-						<h5 class="card-title">{{ $receta->titulo }}</h5>
+						<h2 class="card-title">{{ $receta->titulo }}</h2>
+						<span>
+							<i class="far fa-clock"></i>
+							{{ $receta->created_at->diffForHumans() }}
+						</span>
 					</div>
 				</div>						
 			</div>	
