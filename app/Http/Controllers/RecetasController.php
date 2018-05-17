@@ -162,15 +162,5 @@ class RecetasController extends Controller
     return redirect()->route('recetas.index')
     ->with('status', 'La receta <b>' . $receta->titulo . '</b> fue eliminada exitosamente.');
   }
-
-  /**
-   * Display a listing of the resource frontend
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function index_front()
-  {
-    $categorias = Categoria::all();
-    return view('recetas', compact('categorias'));
-  }
+  
 }

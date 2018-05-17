@@ -1,20 +1,20 @@
+@include ('layouts.head')
 
-@include ('layouts.header')
-
-<main>
-
-	@if(Auth::check())
-	@include ('cpanel.nav')
-	@endif
-
-
+<body>
 	
+	<header>
 
+		@include ('layouts.nav')
 
-	@yield ('content')
+	</header>
 
+	<main>
 
-</main>
+		@yield ('content')
 
-@include ('layouts.footer')
+	</main>
+
+	@include ('layouts.footer')
+
+	@include ('layouts.scripts')
 

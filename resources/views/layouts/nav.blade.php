@@ -1,10 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <div class="wrapper-brand active">
-      
-      @if(Auth::check())
-      <i class="fas fa-bars"></i>
-      @endif
 
       <a class="navbar-brand" href="{{ url('/') }}">
         <i class="fab fa-github"></i>  <b>CAT</b>Chef

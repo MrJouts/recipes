@@ -1,3 +1,5 @@
+/* Generales */
+
 body {
 	font-family: 'Raleway', sans-serif;
 	font-weight: 400;
@@ -36,15 +38,7 @@ a.acciones {
 	text-align: center;
 }
 
-
-.custom-file-label::after {
-	content: "Buscar" !important;
-}
-
-small {
-	display: block;
-}
-
+/* Titulos */
 h1.text-center::after {
 	content: "";
 	display: block;
@@ -57,6 +51,7 @@ h1.text-center::after {
 	margin: auto;
 }
 
+/* Cpanel */
 .menu-cpanel {
 	position: absolute;
 	left: -200px;
@@ -221,6 +216,8 @@ h1.text-center::after {
 	font-size: 68.5%;
 }
 
+
+
 /* Individual effects */
 
 /*---------------*/
@@ -368,7 +365,7 @@ figure.effect-chico:hover p {
 	resize: vertical;
 }
 
-
+/* table backend */
 .img-table {
 	width: 70px;
 	display: block;

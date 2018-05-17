@@ -1,12 +1,10 @@
-@extends ('layouts.master')
+@extends ('cpanel.master')
 
 @section ('title')
 Editar categoría
 @endsection
 
 @section ('content')
-
-@include ('cpanel.nav')
 
 <section>
 	<div class="container-fluid container-cpanel">

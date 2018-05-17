@@ -1,13 +1,10 @@
-@extends ('layouts.master')
+@extends ('cpanel.master')
 
 @section ('title')
 Recipes - Categorías
 @endsection
 
 @section ('content')
-
-@include ('cpanel.nav')
-
 
 <section>
 	<div class="container-fluid container-cpanel">

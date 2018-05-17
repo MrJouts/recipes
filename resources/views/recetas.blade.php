@@ -18,18 +18,24 @@ Recipes - Recetas
 
 		<div class="row">
 
-			@foreach ($categorias as $categoria)
-			<div class="col-4 py-3">							
+			@foreach ($recetas as $receta)
+
+			<div class="col-4 mb-4">	
+				<div class="card">
 				<div class="grid">
+					<a href="{{ route( 'recetas.showFront', ['id' => $receta->id_receta] ) }}">
 					<figure class="effect-chico">
-						<img src="{{ url('/img/'. $categoria->img_src) }}" alt="img15"/>
-						<figcaption>
-							<h2>{{ $categoria->nombre }}</h2>
-							<a href="#">Ver recetas</a>
-						</figcaption>			
+						<img src="{{ url('/img/'. $receta->img_src) }}" alt="img15"/>			
 					</figure>
+				</a>
 				</div>
+					<div class="card-body">
+						<span class="badge badge-primary">{{ $receta->categoria->nombre }}</span>
+						<h5 class="card-title">{{ $receta->titulo }}</h5>
+					</div>
+				</div>						
 			</div>	
+
 			@endforeach
 
 		</div>

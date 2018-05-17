@@ -1,4 +1,4 @@
-@extends ('layouts.master')
+@extends ('cpanel.master')
 
 @section ('title')
 Recipes - {{ $receta->titulo }}
@@ -6,12 +6,10 @@ Recipes - {{ $receta->titulo }}
 
 @section ('content')
 
-@include('cpanel.nav')
-
 <section>
 	<div class="container-fluid container-cpanel">
 		<div class="row">
-			<div class="col-8">
+			<div class="col-7">
 				
 				<div class="row">
 					<div class="col">

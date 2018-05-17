@@ -1,12 +1,10 @@
-@extends ('layouts.master')
+@extends ('cpanel.master')
 
 @section ('title')
 Recipes - Home
 @endsection
 
 @section ('content')
-
-@include ('cpanel.nav')
 
 <section>
 	<div class="container-fluid container-cpanel">
@@ -16,7 +14,7 @@ Recipes - Home
 				<h1 class="my-4">Lista de recetas</h1>
 
 				<a href="{{ route('recetas.create') }}" class="btn btn-primary mb-4">Agregar receta</a>
-
+				
 				@if(Session::has('status'))			
 				@component('components.alert', ['tipo' => 'success'])
 				{!! Session::get('status') !!}

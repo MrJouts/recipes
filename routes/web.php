@@ -50,97 +50,98 @@ Route::get('/contacto', function () {
 
 Route::get('/recetas', [
 	'as' => 'recetas',
-	'uses' => 'RecetasController@index_front',
+	'uses' => 'FrontController@index',
 ]);
 
+Route::get('/recetas/{receta}', [
+	'as' => 'recetas.showFront',
+	'uses' => 'FrontController@showFront',
+]);
 
 // Cpanel
 
+Route::middleware('auth')->group(function() {
+
 // Recetas
 
-Route::get('/cpanel/recetas', [
-	'as' => 'recetas.index',
-	'uses' => 'RecetasController@index',
-]);
+	Route::get('/cpanel/recetas', [
+		'as' => 'recetas.index',
+		'uses' => 'RecetasController@index',
+	]);
 
-Route::get('/cpanel/recetas/crear', [
-	'as' => 'recetas.create',
-	'uses' => 'RecetasController@create',
-]);
+	Route::get('/cpanel/recetas/crear', [
+		'as' => 'recetas.create',
+		'uses' => 'RecetasController@create',
+	]);
 
-Route::post('/cpanel/recetas/crear', [
-	'as' => 'recetas.store',
-	'uses' => 'RecetasController@store',
-]);
+	Route::post('/cpanel/recetas/crear', [
+		'as' => 'recetas.store',
+		'uses' => 'RecetasController@store',
+	]);
 
-Route::get('/cpanel/recetas/{receta}', [
-	'as' => 'recetas.show',
-	'uses' => 'RecetasController@show',
-]);
+	Route::get('/cpanel/recetas/{receta}', [
+		'as' => 'recetas.show',
+		'uses' => 'RecetasController@show',
+	]);
 
-Route::get('/cpanel/recetas/{receta}/editar', [
-	'as' => 'recetas.edit',
-	'uses' => 'RecetasController@edit',
-]);
+	Route::get('/cpanel/recetas/{receta}/editar', [
+		'as' => 'recetas.edit',
+		'uses' => 'RecetasController@edit',
+	]);
 
-Route::put('/cpanel/recetas/{receta}/editar', [
-	'as' => 'recetas.update',
-	'uses' => 'RecetasController@update',
-]);
+	Route::put('/cpanel/recetas/{receta}/editar', [
+		'as' => 'recetas.update',
+		'uses' => 'RecetasController@update',
+	]);
 
-Route::get('/cpanel/recetas/{receta}/eliminar', [
-	'as' => 'recetas.confirmDestroy',
-	'uses' => 'RecetasController@confirmDestroy',
-]);
+	Route::get('/cpanel/recetas/{receta}/eliminar', [
+		'as' => 'recetas.confirmDestroy',
+		'uses' => 'RecetasController@confirmDestroy',
+	]);
 
-Route::delete('/cpanel/recetas/{receta}/eliminar', [
-	'as' => 'recetas.destroy',
-	'uses' => 'RecetasController@destroy',
-]);
+	Route::delete('/cpanel/recetas/{receta}/eliminar', [
+		'as' => 'recetas.destroy',
+		'uses' => 'RecetasController@destroy',
+	]);
 
 
 // Categorías
 
-Route::get('/cpanel/categorias', [
-	'as' => 'categorias.index',
-	'uses' => 'CategoriasController@index',
-]);
+	Route::get('/cpanel/categorias', [
+		'as' => 'categorias.index',
+		'uses' => 'CategoriasController@index',
+	]);
 
-Route::post('/cpanel/categorias/crear', [
-	'as' => 'categorias.store',
-	'uses' => 'CategoriasController@store',
-]);
+	Route::post('/cpanel/categorias/crear', [
+		'as' => 'categorias.store',
+		'uses' => 'CategoriasController@store',
+	]);
 
-Route::get('/cpanel/categorias/{categoria}/editar', [
-	'as' => 'categorias.edit',
-	'uses' => 'CategoriasController@edit',
-]);
+	Route::get('/cpanel/categorias/{categoria}/editar', [
+		'as' => 'categorias.edit',
+		'uses' => 'CategoriasController@edit',
+	]);
 
-Route::put('/cpanel/categorias/{categoria}/editar', [
-	'as' => 'categorias.update',
-	'uses' => 'CategoriasController@update',
-]);
+	Route::put('/cpanel/categorias/{categoria}/editar', [
+		'as' => 'categorias.update',
+		'uses' => 'CategoriasController@update',
+	]);
 
-Route::get('/cpanel/categorias/{categoria}/eliminar', [
-	'as' => 'categorias.confirmDestroy',
-	'uses' => 'CategoriasController@confirmDestroy',
-]);
+	Route::get('/cpanel/categorias/{categoria}/eliminar', [
+		'as' => 'categorias.confirmDestroy',
+		'uses' => 'CategoriasController@confirmDestroy',
+	]);
 
-Route::delete('/cpanel/categorias/{categoria}/eliminar', [
-	'as' => 'categorias.destroy',
-	'uses' => 'CategoriasController@destroy',
-]);
+	Route::delete('/cpanel/categorias/{categoria}/eliminar', [
+		'as' => 'categorias.destroy',
+		'uses' => 'CategoriasController@destroy',
+	]);
 
 
 // Perfil
 
-Route::get('/cpanel/perfil', function() {
-	return view('cpanel.perfil');
+	Route::get('/cpanel/perfil', function() {
+		return view('cpanel.perfil');
+	});
+
 });
-
-// Auth
-
-// Route::get('/ingresar', [
-// 	'as' => 'recetas.index',
-// 	'uses' => 'RecetasController@index',
-// ]);

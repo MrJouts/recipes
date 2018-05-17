@@ -1,0 +1,22 @@
+Comisión: DW5ATN
+Materia: Aplicaciones enriquecidas
+Carcter de entrega: 1er Parcial
+Docente: Santiago Gallino
+Alumno: Emiliano Hotes
+Año: 2018
+
+--------------
+Datos técnicos
+--------------
+
+Usuario 1
+usuario: emi@davinci.com
+password: 123123
+
+Usuario 2
+usuario: santi@davinci.com
+password: 123456
+
+Usuario 3
+usuario: fran@davinci.com
+password: 123321
