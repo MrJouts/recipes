@@ -13,8 +13,8 @@ class Receta extends Model
   protected $primaryKey = "id_receta";
 
   /** @var array Los campos que se pueden cargar de manera masiva. */
-  //protected $fillable = ['nombre', 'genero', 'precio', 'anio_estreno'];
-  protected $guarded = [];
+  protected $fillable = ['img_src', 'titulo', 'preparacion', 'ingredientes', 'id_categoria'];
+  //protected $guarded = [];
 
   /** @var array Las reglas de la validación. */
   public static $rules = [

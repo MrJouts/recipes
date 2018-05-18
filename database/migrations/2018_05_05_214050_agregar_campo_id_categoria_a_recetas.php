@@ -14,8 +14,8 @@ class AgregarCampoIdCategoriaARecetas extends Migration
   public function up()
   {
     Schema::table('recetas', function(Blueprint $table) {
-      $table->unsignedInteger('id_categoria');
-      $table->foreign('id_categoria')->references('id_categoria')->on('categorias');
+      $table->unsignedInteger('id_categoria')->nullable();
+      $table->foreign('id_categoria')->references('id_categoria')->on('categorias')->onDelete('set null');
     });
   }
 

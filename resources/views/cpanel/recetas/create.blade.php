@@ -18,7 +18,7 @@ Catchef - Cpanel - Agregar receta
 					</a>
 				</div>
 
-				<form method="POST" action="{{ route('recetas.store') }}" class="form-alta" enctype="multipart/form-data">
+				<form method="POST" action="{{ route('recetas.store') }}" enctype="multipart/form-data" class="form-alta">
 					@csrf
 					<div class="form-group">
 						<label for="titulo">Título</label>

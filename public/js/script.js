@@ -29,7 +29,7 @@ $(function () {
   	console.error( error );
   } );
 
-  $('.form-alta').on('submit', function() {
+  $('.form-alta, .form-editar').on('submit', function() {
 
     var contenidoIngredientes = $('#ingredientes').val();
     var contenidoPreparacion = $('#preparacion').val();
@@ -42,7 +42,6 @@ $(function () {
       $('#preparacion').val('');
     }
     
-
   });
 
 

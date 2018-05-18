@@ -18,22 +18,22 @@ Catchef - Editar - {{ $receta->titulo }}
 					</a>
 				</div>
 
-				<form method="POST" action="{{ route('recetas.update' , ['id' => $receta->id_receta] ) }}">
+				<form method="POST" action="{{ route('recetas.update' , ['id' => $receta->id_receta] ) }}" enctype="multipart/form-data" class="form-editar">
 					@csrf
 					@method('PUT')
 					<div class="form-group">
 
 						<label for="titulo">Título</label>
-						<input type="text" class="form-control" id="titulo" name="titulo" placeholder="Ñoquis con bolognesa" value="{{ old('titulo', $receta->titulo) }}">
-						@if($errors->has('nombre'))
-						<small class="text-danger">{{ $errors->first('nombre') }}</small>
+						<input type="text" class="form-control" id="titulo" name="titulo" value="{{ old('titulo', $receta->titulo) }}">
+						@if($errors->has('titulo'))
+						<small class="text-danger">{{ $errors->first('titulo') }}</small>
 						@endif
 					</div>
 
 					<p>Imagen</p>
 					<div class="row d-flex mb-3">
 						<div class="col-4">
-							<img class="img-fluid"  src="{{ url('/img/'. $receta->img_src) }}" alt="">
+							<img class="img-fluid img-form"  src="{{ url('/img/'. $receta->img_src) }}" alt="">
 						</div>
 						<div class="col-8 align-self-end">
 							
@@ -67,11 +67,9 @@ Catchef - Editar - {{ $receta->titulo }}
 						<select id="id_categoria" name="id_categoria" class="form-control">
 							@foreach($categorias as $categoria)
 							<option value="{{ $categoria->id_categoria }}"
-								<?php
-								if(old('id_categoria', $receta->id_categoria) == $categoria->id_categoria) {
-									echo "selected";
-								}
-								?>
+								@if(old('id_categoria', $receta->id_categoria) == $categoria->id_categoria) 
+									{{ 'selected' }}
+								@endif
 								>
 								{{ $categoria->nombre }}
 							</option>

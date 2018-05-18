@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Receta;
 use App\Models\Categoria;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Input;
 
 class RecetasController extends Controller
 {
@@ -19,6 +19,8 @@ class RecetasController extends Controller
   {
     Carbon::setLocale('es');
     $recetas = Receta::with('categoria')->latest()->get();
+
+    //dd($recetas->get(7)->id_categoria);
     return view('cpanel.recetas.index', compact('recetas'));
   }
 
@@ -41,7 +43,6 @@ class RecetasController extends Controller
    */
   public function store(Request $request)
   {
-    $inputData = $request->all();
 
     $request->validate(Receta::$rules, [
       'titulo.required' => 'El título de la receta no puede estar vacío.',
@@ -51,15 +52,15 @@ class RecetasController extends Controller
       'preparacion.required' => 'Debés ingresar la preparación'
     ]);
 
-    $imagen = $request->file('img_src');
+    $inputData = $request->all();
 
-    $nombre = $imagen->getClientOriginalName();
-
-    $destino = public_path() . '/img/';
-
-    $imagen->move($destino, $nombre);
-
-    $inputData['img_src'] = $nombre; 
+    if (Input::hasFile('img_src')) {
+      $imagen = $request->file('img_src');
+      $nombre = $imagen->getClientOriginalName();
+      $destino = public_path() . '/img/';
+      $imagen->move($destino, $nombre);
+      $inputData['img_src'] = $nombre; 
+    }
 
     Receta::create($inputData);
 
@@ -105,6 +106,7 @@ class RecetasController extends Controller
    */
   public function update(Request $request, $id)
   {
+  
     $request->validate(Receta::$rules_edit, [
       'titulo.required' => 'El título de la receta no puede estar vacío.',
       'titulo.min' => 'El título de la receta debe tener al menos :min caracteres.',
@@ -112,14 +114,17 @@ class RecetasController extends Controller
       'preparacion.required' => 'Debés ingresar la preparación'
     ]);
 
-    $inputData = $request->input();
+    $inputData = $request->all();
 
-    if ($inputData['img_src'] == null) {
-      unset($inputData['img_src']);
+    if (Input::hasFile('img_src')) {
+      $imagen = $request->file('img_src');
+      $nombre = $imagen->getClientOriginalName();
+      $destino = public_path() . '/img/';
+      $imagen->move($destino, $nombre);
+      $inputData['img_src'] = $nombre; 
     }
 
     $receta = Receta::find($id);
-
     $receta->update($inputData);
 
     return redirect()->route('recetas.index')
@@ -159,8 +164,8 @@ class RecetasController extends Controller
 
     $receta->delete();
 
-    return redirect()->route('categorias.index')
-    ->with('status', 'La categoría <b>' . $categoria->nombre . '</b> fue eliminada exitosamente.');
+    return redirect()->route('recetas.index')
+    ->with('status', 'La receta <b>' . $receta->titulo . '</b> fue eliminada exitosamente.');
   }
   
 }

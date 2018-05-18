@@ -40,9 +40,14 @@ Catchef - Cpanel - Recetas
 							<th scope="row">{{ $receta->id_receta }}</th>
 							<td><img class="img-fluid img-table" src="{{ url('/img/'. $receta->img_src) }}" alt=""></td>
 							<td>{{ $receta->titulo }}</td>
-							{{-- <td>{{ $receta->created_at->diffForHumans() }}</td> --}}
 							<td>{{ $receta->created_at->format('jS \d\e F Y') }}</td>
-							<td>{{ $receta->categoria->nombre }}</td>
+							<td>
+								@if ($receta->categoria == null)
+								{{ 'sin categoría' }}
+								@else
+								{{ $receta->categoria->nombre }}
+								@endif
+							</td>
 							<td>
 								<a class="btn btn-primary acciones" href="{{ route( 'recetas.show', ['id' => $receta->id_receta] ) }}" role="button" data-toggle="tooltip" data-placement="top" title="Ver"><i class="far fa-eye"></i></a>
 								<a class="btn btn-primary acciones" href="{{ route( 'recetas.edit', ['id' => $receta->id_receta] ) }}" role="button" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fas fa-pencil-alt"></i></a>
