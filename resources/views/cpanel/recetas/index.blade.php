@@ -16,7 +16,7 @@ Catchef - Cpanel - Recetas
 				<a href="{{ route('recetas.create') }}" class="btn btn-primary mb-4">Agregar receta</a>
 				
 				@if(Session::has('status'))			
-				@component('components.alert', ['tipo' => 'success'])
+				@component('components.alert', ['tipo' => Session::get('class')])
 				{!! Session::get('status') !!}
 				@endcomponent
 				@endif
