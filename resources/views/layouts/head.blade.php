@@ -25,4 +25,9 @@
 	
 	<link rel="stylesheet" href="{{ url('css/fileinput.min.css') }}">
 
+	{{--Owl Carousel--}}
+	<link rel="stylesheet" href="{{ url('css/owl.carousel.min.css') }}">
+	<link rel="stylesheet" href="{{ url('css/owl.theme.default.css') }}">
+
+
 </head>

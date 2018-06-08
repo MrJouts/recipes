@@ -1,5 +1,37 @@
 /* Generales */
 
+@font-face {
+	font-family: 'YanoneKaffeesatz-Bold';
+	src: url("fonts/YanoneKaffeesatz-Bold.ttf");
+	src: local("☺"), url("fonts/YanoneKaffeesatz-Bold.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'YanoneKaffeesatz-Regular';
+	src: url("fonts/YanoneKaffeesatz-Regular.ttf");
+	src: local("☺"), url("fonts/YanoneKaffeesatz-Regular.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'YanoneKaffeesatz-Light';
+	src: url("fonts/YanoneKaffeesatz-Light.ttf");
+	src: local("☺"), url("fonts/YanoneKaffeesatz-Light.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'YanoneKaffeesatz-Thin';
+	src: url("fonts/YanoneKaffeesatz-Thin.ttf");
+	src: local("☺"), url("fonts/YanoneKaffeesatz-Thin.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
 body {
 	font-family: 'Raleway', sans-serif;
 	font-weight: 400;
@@ -7,6 +39,7 @@ body {
 }
 
 h1, h2, h3 {
+	font-family: 'YanoneKaffeesatz-Regular', 'Raleway', sans-serif;
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 3px;

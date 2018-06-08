@@ -1,0 +1,439 @@
+/* Generales */
+
+@font-face {
+  font-family: 'YanoneKaffeesatz-Bold';
+  src: url("fonts/YanoneKaffeesatz-Bold.ttf");
+  src: local("☺"), url("fonts/YanoneKaffeesatz-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'YanoneKaffeesatz-Regular';
+  src: url("fonts/YanoneKaffeesatz-Regular.ttf");
+  src: local("☺"), url("fonts/YanoneKaffeesatz-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'YanoneKaffeesatz-Light';
+  src: url("fonts/YanoneKaffeesatz-Light.ttf");
+  src: local("☺"), url("fonts/YanoneKaffeesatz-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'YanoneKaffeesatz-Thin';
+  src: url("fonts/YanoneKaffeesatz-Thin.ttf");
+  src: local("☺"), url("fonts/YanoneKaffeesatz-Thin.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  position: relative;
+}
+
+h1, h2, h3 {
+  font-family: 'YanoneKaffeesatz-Regular', 'Raleway', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+h1 {
+  font-size: 18px;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 14px;
+}
+
+h1.title {
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.btn {
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 8px 18px;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+}
+
+a.acciones {
+  font-size: 12px;
+  padding: 9px 9px;
+  text-transform: lowercase;
+  width: 36px;
+  text-align: center;
+}
+
+.image {
+  text-align: center;
+}
+
+/* Titulos */
+h1.text-center::after {
+  content: "";
+  display: block;
+  border-bottom: 3px solid #FF5E3A;
+  width: 80px;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.badge-primary {
+  font-size: 1rem;
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+}
+
+/* Colores */
+
+.badge-primary {
+  background-color: #FF5E3A;
+}
+
+.btn-primary {
+  background-color: #FF5E3A;
+  border-color: #FF5E3A;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+  background-color: #c74e34 !important;
+  border-color: #c74e34 !important;
+}
+
+.btn-primary:focus {
+  box-shadow: none !important;
+}
+
+/* Front End */
+
+
+/* Menu */
+
+#menu .nav-item .nav-link {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+#menu .nav-item.active .nav-link {
+  color: #FF5E3A;
+}
+
+
+/*  Home */
+
+#home .hero {
+  height: 420px;
+  color: #fff;
+  background: url('../img/home2.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+#home .hero h1 {
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+#home .list-group-item,
+#home .list-group-item:hover {
+  border: none;
+  border-top: 1px solid #ddd;
+  border-radius: 0;
+  z-index: 0;
+}
+
+/* Recetas Archive */
+#home .card-body,
+#recetas .card-body {
+  z-index: 1;
+}
+
+#home .badge-primary,
+#recetas .badge-primary {
+  float:right;
+  margin-top: -2.3rem;
+}
+
+#home h3,
+#recetas h2 {
+  text-transform: none;
+  letter-spacing: initial;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding-top: 1rem;
+}
+
+/* Recetas Single */
+#recetas-single h1 {
+  font-size: 2.6rem;
+  font-weight: 100;
+}
+
+#recetas-single h2{
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+#recetas-single ul {
+  list-style-type: none;
+}
+
+/* Cpanel */
+.menu-cpanel {
+  position: absolute;
+  left: -200px;
+  top: 56px;
+  width: 200px;
+  height: 100%;
+  background-color: #354051;
+  display: block;
+  min-height: calc( 100vh - 56px );
+  transition: left .3s ease-in-out;
+}
+
+.menu-cpanel.active {
+  left: 0;
+}
+
+.menu-cpanel .nav-link {
+  color: rgba(255,255,255,.6);
+  font-size: 15px;
+  font-weight: 600;
+  padding: .7rem 1rem;
+}
+
+.menu-cpanel i,
+.navbar-brand i {
+  margin-right: .7rem;
+}
+
+.menu-cpanel .active {
+  color: rgba(255,255,255,.9);
+}
+
+.container-cpanel.active {
+  padding-left: 15px;
+  transition: padding-left .3s ease-in-out;
+}
+
+.container-cpanel {
+  padding-left: 215px;
+  transition: padding-left .3s ease-in-out;
+}
+
+.navbar-light .navbar-brand {
+  text-transform: uppercase;
+  color: #FF5E3A ;
+}
+
+.cpanel .wrapper-brand {
+  position: absolute;
+  background: #354051;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  opacity: .9;
+  color: #fff;
+}
+
+.wrapper-brand > i {
+  margin-right: .8rem;
+}
+
+.wrapper-brand > i:hover {
+  cursor: pointer;
+}
+
+.cpanel .wrapper-brand .navbar-brand {
+  color: #fff ;
+}
+
+#perfil img {
+  width: 360px;
+}
+
+/*--------------*/
+/***** Grid *****/
+/*--------------*/
+
+.grid {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1000px;
+  list-style: none;
+  text-align: center;
+}
+
+/* Common style */
+.grid figure {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  min-width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  width: 48%;
+  background: #3085a3;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.grid figure img {
+  position: relative;
+  display: block;
+  min-height: 100%;
+  max-width: 100%;
+  opacity: 0.8;
+}
+
+.grid figure figcaption {
+  padding: 2em;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+  pointer-events: none;
+}
+
+.grid figure figcaption,
+.grid figure figcaption > a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.grid figure figcaption > a {
+  z-index: 1000;
+  text-indent: 200%;
+  white-space: nowrap;
+  font-size: 0;
+  opacity: 0;
+}
+
+.grid figure h2 {
+  word-spacing: -0.15em;
+  font-weight: 300;
+}
+
+/*---------------*/
+/***** Chico *****/
+/*---------------*/
+
+figure.effect-chico img {
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(1.12);
+  transform: scale(1.12);
+}
+
+figure.effect-chico:hover img {
+  opacity: 0.7;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+figure.effect-chico figcaption {
+  padding: 3em;
+}
+
+figure.effect-chico figcaption::before {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  bottom: 30px;
+  left: 30px;
+  border: 1px solid #fff;
+  content: '';
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+figure.effect-chico figcaption::before,
+figure.effect-chico p {
+  opacity: .8;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+}
+
+figure.effect-chico h2 {
+  padding: 20% 0 20px 0;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+figure.effect-chico p {
+  margin: 0 auto;
+  max-width: 200px;
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+}
+
+figure.effect-chico:hover figcaption::before,
+figure.effect-chico:hover p {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+@media screen and (max-width: 50em) {
+  .content {
+    padding: 0 10px;
+    text-align: center;
+  }
+  .grid figure {
+    display: inline-block;
+    float: none;
+    margin: 10px auto;
+    width: 100%;
+  }
+}
+
+
+/* CKEditor */
+
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+  resize: vertical;
+}
+
+/* table backend */
+.img-table {
+  width: 70px;
+  display: block;
+  margin: auto;
+}
