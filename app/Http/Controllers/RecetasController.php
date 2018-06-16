@@ -87,7 +87,14 @@ class RecetasController extends Controller
     Receta::create($inputData);
 
     return redirect()->route('recetas.index')
-    ->with('status', 'La receta <b>' . $inputData['titulo'] . '</b> fue creada exitosamente.');
+    ->with(
+      [
+        'status' => 'La receta <b>' . $inputData['titulo'] . '</b> fue creada exitosamente.', 
+        'class' => 'success'
+      ]
+    );
+
+
   }
 
   /**
@@ -130,7 +137,7 @@ class RecetasController extends Controller
    */
   public function update(Request $request, $id)
   {
-  
+
     $request->validate(Receta::$rules_edit, [
       'titulo.required' => 'El título de la receta no puede estar vacío.',
       'titulo.min' => 'El título de la receta debe tener al menos :min caracteres.',
@@ -152,7 +159,12 @@ class RecetasController extends Controller
     $receta->update($inputData);
 
     return redirect()->route('recetas.index')
-    ->with('status', 'La receta <b>' . $receta->titulo . '</b> fue editada exitosamente.');
+    ->with(
+      [
+        'status' => 'La receta <b>' . $receta->titulo . '</b> fue editada exitosamente.', 
+        'class' => 'warning'
+      ]
+    );
 
   }
 
@@ -189,7 +201,13 @@ class RecetasController extends Controller
     $receta->delete();
 
     return redirect()->route('recetas.index')
-    ->with('status', 'La receta <b>' . $receta->titulo . '</b> fue eliminada exitosamente.');
+    ->with(
+      [
+        'status' => 'La receta <b>' . $receta->titulo . '</b> fue eliminada exitosamente.', 
+        'class' => 'danger'
+      ]
+    );
+
   }
   
 }
