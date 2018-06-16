@@ -6,10 +6,30 @@ use Illuminate\Http\Request;
 use App\Models\Receta;
 use App\Models\Categoria;
 use Carbon\Carbon;
+use App\Repositories\Contracts\RecetaRepository;
+use App\Repositories\Contracts\CategoriaRepository;
 use Illuminate\Support\Facades\Input;
 
 class RecetasController extends Controller
 {
+
+  /** @var RecetaRepository */
+  protected $repoReceta;
+
+  /** @var CategoriaRepository */
+  protected $repoCategoria;
+
+  /**
+   * Trae el repositorio de recetas
+   * 
+   * @param RecetaRepository $repoReceta
+   */
+  public function __construct(RecetaRepository $repoReceta, RecetaRepository $repoCategoria )
+  {
+      $this->repoReceta = $repoReceta;
+      $this->repoCategoria = $repoCategoria;
+  }
+
   /**
    * Display a listing of the resource.
    *
@@ -18,7 +38,8 @@ class RecetasController extends Controller
   public function index()
   {
     Carbon::setLocale('es');
-    $recetas = Receta::with('categoria')->latest()->get();
+    //$recetas = Receta::with('categoria')->latest()->get();
+    $recetas = $this->repoReceta->withAllRelationships();
 
     //dd($recetas->get(7)->id_categoria);
     return view('cpanel.recetas.index', compact('recetas'));
@@ -31,7 +52,8 @@ class RecetasController extends Controller
    */
   public function create()
   {
-    $categorias = Categoria::all();
+    //$categorias = Categoria::all();
+    $categorias = $this->repoCategoria->all();
     return view('cpanel.recetas.create', compact('categorias'));
   }
 
@@ -74,9 +96,11 @@ class RecetasController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function show(Receta $receta)
+  public function show($receta)
   {
     //$receta = Receta::find($id);
+    $receta = $this->repoReceta->find($receta);
+
     return view('cpanel.recetas.show', compact('receta'));
   }
 

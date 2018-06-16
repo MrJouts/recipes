@@ -16,7 +16,6 @@ class FrontController extends Controller
    */
   public function index()
   {
-    Carbon::setLocale('es');
     $recetas = Receta::with('categoria')->latest()->get();
     return view('recetas', compact('recetas'));
   }
@@ -41,7 +40,6 @@ class FrontController extends Controller
    */
   public function showFrontHome(Receta $receta)
   {
-    Carbon::setLocale('es');
     $ultimasRecetas = Receta::with('categoria')->latest()->take(3)->get();
     $recetasPopulares = Receta::with('categoria')->first()->take(4)->get();
     $recetaDelDia = Receta::with('categoria')->find(9);
@@ -60,7 +58,6 @@ class FrontController extends Controller
    */
   public function footer(Receta $receta)
   {
-    Carbon::setLocale('es');
     $ultimasRecetas = Receta::with('categoria')->latest()->take(3)->get();
     $recetasPopulares = Receta::with('categoria')->first()->take(4)->get();
     $recetaDelDia = Receta::with('categoria')->find(9);
