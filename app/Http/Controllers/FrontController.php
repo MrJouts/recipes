@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Receta;
 use App\Models\Categoria;
+use App\Models\Comentario;
 use Carbon\Carbon;
 
 class FrontController extends Controller
@@ -26,9 +27,10 @@ class FrontController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function showFrontRecetas(Receta $receta)
+  public function showFrontRecetas($receta)
   {
     $categorias = Categoria::all();
+    $receta = Receta::with('comentarios')->find($receta);
     return view('recetasShow', compact('receta', 'categorias'));
   }
 
@@ -66,6 +68,17 @@ class FrontController extends Controller
     //dd($categorias);
 
     return view('home', compact('ultimasRecetas', 'recetasPopulares', 'recetaDelDia', 'categorias'));
+  }
+
+  /**
+   * Display the specified resource.
+   *
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function comments(Receta $receta)
+  {
+
   }
 
 }

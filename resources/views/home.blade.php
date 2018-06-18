@@ -18,71 +18,6 @@ Catchef
 		</div>
 	</div>
 
-	<div class="container-fluid">
-		<div class="owl-carousel owl-theme">
-			<div class="item">
-				<div class="card">
-					<img class="card-img-top img-fluid" src="http://fillmurray.com/300/200" alt="Card image cap">
-					<div class="card-body">
-						<h3 class="card-title">Card title</h3>
-						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="card">
-					<img class="card-img-top img-fluid" src="http://fillmurray.com/300/200" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="card">
-					<img class="card-img-top img-fluid" src="http://fillmurray.com/300/200" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="card">
-					<img class="card-img-top img-fluid" src="http://fillmurray.com/300/200" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="card">
-					<img class="card-img-top img-fluid" src="http://fillmurray.com/300/200" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="card">
-					<img class="card-img-top img-fluid" src="http://fillmurray.com/300/200" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						<a href="#" class="btn btn-primary">Go somewhere</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<div class="container">
 
 		<div class="row">
@@ -98,7 +33,7 @@ Catchef
 					<div class="grid">
 						<a href="{{ route( 'recetas.showFrontRecetas', ['id' => $receta->id_receta] ) }}">
 							<figure class="effect-chico">
-								<img src="{{ url('/img/'. $receta->img_src) }}" alt="{{ $receta->titulo}}"/>			
+								<img src="{{ url('storage/' . $receta->img_src) }}" alt="{{ $receta->titulo }}">
 							</figure>
 						</a>
 					</div>
@@ -129,7 +64,7 @@ Catchef
 					<div class="grid">
 						<a href="{{ route( 'recetas.showFrontRecetas', ['id' => $receta->id_receta] ) }}">
 							<figure class="effect-chico">
-								<img src="{{ url('/img/'. $receta->img_src) }}" alt="{{ $receta->titulo}}"/>			
+								<img src="{{ url('storage/' . $receta->img_src) }}" alt="{{ $receta->titulo }}">
 							</figure>
 						</a>
 					</div>
@@ -153,9 +88,9 @@ Catchef
 				<h2 class="my-4">Receta de día</h2>
 				<div class="card">
 					<div class="grid">
-						<a href="{{ route( 'recetas.showFrontRecetas', ['id' => $receta->id_receta] ) }}">
+						<a href="{{ route( 'recetas.showFrontRecetas', ['id' => $recetaDelDia->id_receta] ) }}">
 							<figure class="effect-chico">
-								<img src="{{ url('/img/'. $recetaDelDia->img_src) }}" alt="{{ $recetaDelDia->titulo}}"/>			
+								<img src="{{ url('storage/' . $recetaDelDia->img_src) }}" alt="{{ $recetaDelDia->titulo }}">
 							</figure>
 						</a>
 					</div>

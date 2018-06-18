@@ -25,7 +25,7 @@ Catchef - Recetas
 				<div class="grid">
 					<a href="{{ route( 'recetas.showFrontRecetas', ['id' => $receta->id_receta] ) }}">
 					<figure class="effect-chico">
-						<img src="{{ url('/img/'. $receta->img_src) }}" alt="{{ $receta->titulo}}"/>			
+                        <img src="{{ url('storage/' . $receta->img_src) }}" alt="{{ $receta->titulo }}"/>
 					</figure>
 				</a>
 				</div>

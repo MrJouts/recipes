@@ -38,7 +38,9 @@ Catchef - Cpanel - Recetas
 
 						<tr>
 							<th scope="row">{{ $receta->id_receta }}</th>
-							<td><img class="img-fluid img-table" src="{{ url('/img/'. $receta->img_src) }}" alt=""></td>
+							<td>
+								<img class="img-fluid img-table" src="{{ url('storage/' . $receta->img_src) }}" alt="{{ $receta->titulo }}">
+							</td>
 							<td>{{ $receta->titulo }}</td>
 							<td>{{ $receta->created_at->format('jS \d\e F Y') }}</td>
 							<td>

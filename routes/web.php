@@ -60,6 +60,14 @@ Route::get('/contacto', function () {
 });
 
 
+// Comments
+
+Route::put('/recetas/{receta}/comments', [
+	'as' => 'recetas.comments',
+	'uses' => 'ComentariosController@store',
+]);
+
+
 // Cpanel
 
 Route::middleware('auth')->group(function() {
@@ -146,4 +154,10 @@ Route::middleware('auth')->group(function() {
 		return view('cpanel.perfil');
 	});
 
+// Usuarios
+
+    Route::get('/cpanel/usuarios', [
+        'as' => 'usuarios.index',
+        'uses' => 'UsuariosController@index',
+    ]);
 });

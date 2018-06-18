@@ -33,7 +33,9 @@ Catchef - Editar - {{ $receta->titulo }}
 					<p>Imagen</p>
 					<div class="row d-flex mb-3">
 						<div class="col-4">
-							<img class="img-fluid img-form"  src="{{ url('/img/'. $receta->img_src) }}" alt="">
+
+							<img class="img-fluid img-form" src="{{ url('storage/' . $receta->img_src) }}" alt="{{ $receta->titulo }}">
+							
 						</div>
 						<div class="col-8 align-self-end">
 							
@@ -68,7 +70,7 @@ Catchef - Editar - {{ $receta->titulo }}
 							@foreach($categorias as $categoria)
 							<option value="{{ $categoria->id_categoria }}"
 								@if(old('id_categoria', $receta->id_categoria) == $categoria->id_categoria) 
-									{{ 'selected' }}
+								{{ 'selected' }}
 								@endif
 								>
 								{{ $categoria->nombre }}

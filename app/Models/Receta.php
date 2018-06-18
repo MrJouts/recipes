@@ -19,7 +19,7 @@ class Receta extends Model
   /** @var array Las reglas de la validación. */
   public static $rules = [
     'titulo' => 'required|min:3',
-    'img_src' => 'required',
+    'img_src' => 'sometimes|image',
     'ingredientes' => 'required',
     'preparacion' => 'required',
   ];
@@ -27,6 +27,7 @@ class Receta extends Model
   /** @var array Las reglas de la validación. */
   public static $rules_edit = [
     'titulo' => 'required|min:3',
+    'img_src' => 'sometimes|image',
     'ingredientes' => 'required',
     'preparacion' => 'required',
   ];
@@ -35,4 +36,13 @@ class Receta extends Model
   {
     return $this->belongsTo(Categoria::class, 'id_categoria', 'id_categoria');
   } 
+
+  public function comentarios()
+  {
+    return $this->hasMany(Comentario::class, 'id_receta', 'id_receta');
+  } 
+
+  public function agregarComentario($comentario) {
+    $this->comentarios()->create(compact('comentario'));
+  }
 }

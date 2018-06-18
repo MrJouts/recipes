@@ -20,14 +20,14 @@
 	{{-- CK Editor --}}
 	<script src="https://cdn.ckeditor.com/ckeditor5/10.0.0/classic/ckeditor.js"></script>
 
-	{{-- Style --}}
-	<link rel="stylesheet" href="{{ url('css/style.css') }}">
-	
+
 	<link rel="stylesheet" href="{{ url('css/fileinput.min.css') }}">
 
 	{{--Owl Carousel--}}
 	<link rel="stylesheet" href="{{ url('css/owl.carousel.min.css') }}">
 	<link rel="stylesheet" href="{{ url('css/owl.theme.default.css') }}">
 
+	{{-- Style --}}
+	<link rel="stylesheet" href="{{ url('css/style.css') }}">
 
 </head>

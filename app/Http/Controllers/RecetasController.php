@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Receta;
 use App\Models\Categoria;
+use App\Models\Comentario;
 use Carbon\Carbon;
 use App\Repositories\Contracts\RecetaRepository;
-use App\Repositories\Contracts\CategoriaRepository;
 use Illuminate\Support\Facades\Input;
+use Storage;
 
 class RecetasController extends Controller
 {
@@ -16,18 +17,14 @@ class RecetasController extends Controller
   /** @var RecetaRepository */
   protected $repoReceta;
 
-  /** @var CategoriaRepository */
-  protected $repoCategoria;
-
   /**
    * Trae el repositorio de recetas
    * 
    * @param RecetaRepository $repoReceta
    */
-  public function __construct(RecetaRepository $repoReceta, RecetaRepository $repoCategoria )
+  public function __construct(RecetaRepository $repoReceta)
   {
-      $this->repoReceta = $repoReceta;
-      $this->repoCategoria = $repoCategoria;
+    $this->repoReceta = $repoReceta;
   }
 
   /**
@@ -37,7 +34,6 @@ class RecetasController extends Controller
    */
   public function index()
   {
-    Carbon::setLocale('es');
     //$recetas = Receta::with('categoria')->latest()->get();
     $recetas = $this->repoReceta->withAllRelationships();
 
@@ -52,8 +48,9 @@ class RecetasController extends Controller
    */
   public function create()
   {
-    //$categorias = Categoria::all();
-    $categorias = $this->repoCategoria->all();
+    $categorias = Categoria::all();
+    //$categorias = $this->repoCategoria->all();
+
     return view('cpanel.recetas.create', compact('categorias'));
   }
 
@@ -66,6 +63,8 @@ class RecetasController extends Controller
   public function store(Request $request)
   {
 
+    $inputData = $request->all();
+
     $request->validate(Receta::$rules, [
       'titulo.required' => 'El título de la receta no puede estar vacío.',
       'titulo.min' => 'El título de la receta debe tener al menos :min caracteres.',
@@ -74,15 +73,10 @@ class RecetasController extends Controller
       'preparacion.required' => 'Debés ingresar la preparación'
     ]);
 
-    $inputData = $request->all();
-
-    if (Input::hasFile('img_src')) {
-      $imagen = $request->file('img_src');
-      $nombre = $imagen->getClientOriginalName();
-      $destino = public_path() . '/img/';
-      $imagen->move($destino, $nombre);
-      $inputData['img_src'] = $nombre; 
-    }
+    if($request->hasFile('img_src')) {
+      $filepath = $request->file('img_src')->store('img');
+      $inputData['img_src'] = $filepath;
+    }  
 
     Receta::create($inputData);
 
@@ -93,7 +87,6 @@ class RecetasController extends Controller
         'class' => 'success'
       ]
     );
-
 
   }
 
@@ -145,18 +138,22 @@ class RecetasController extends Controller
       'preparacion.required' => 'Debés ingresar la preparación'
     ]);
 
-    $inputData = $request->all();
-
-    if (Input::hasFile('img_src')) {
-      $imagen = $request->file('img_src');
-      $nombre = $imagen->getClientOriginalName();
-      $destino = public_path() . '/img/';
-      $imagen->move($destino, $nombre);
-      $inputData['img_src'] = $nombre; 
-    }
+    $inputData = $request->input();
 
     $receta = Receta::find($id);
+
+    if($request->hasFile('img_src')) {
+      $imagenActual = $receta->img_src;
+      $filepath = $request->file('img_src')->store('img');
+      $inputData['img_src'] = $filepath;
+    }
+
     $receta->update($inputData);
+
+    // Borramos la imagen luego del update.
+    if(isset($imagenActual) && !empty($imagenActual)) {
+      Storage::delete($imagenActual);
+    }
 
     return redirect()->route('recetas.index')
     ->with(
@@ -192,11 +189,10 @@ class RecetasController extends Controller
 
     $receta = Receta::find($id);
 
-    $nombre = $receta->img_src;
-
-    $imagen = public_path() . '/img/' . $nombre;
-
-    \File::delete($imagen);
+    $imagen = $receta->img_src;
+    if ($imagen) {
+      Storage::delete($imagen);
+    }
 
     $receta->delete();
 

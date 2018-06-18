@@ -377,28 +377,7 @@ module.exports = {
 /* 1 */
 /***/ (function(module, exports) {
 
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\webpack\\buildin\\global.js'");
 
 /***/ }),
 /* 2 */
@@ -31075,29 +31054,7 @@ if (token) {
 /* 15 */
 /***/ (function(module, exports) {
 
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
-
+throw new Error("Module build failed: Error: ENOENT: no such file or directory, open 'C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\webpack\\buildin\\module.js'");
 
 /***/ }),
 /* 16 */
@@ -47381,7 +47338,7 @@ if (false) {
 /* 43 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleNotFoundError: Module not found: Error: Can't resolve '../img/home2.jpg' in 'C:\\xampp\\htdocs\\proyectos\\catchef\\resources\\assets\\sass'\n    at factoryCallback (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\webpack\\lib\\Compilation.js:276:40)\n    at factory (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\webpack\\lib\\NormalModuleFactory.js:237:20)\n    at resolver (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\webpack\\lib\\NormalModuleFactory.js:60:20)\n    at asyncLib.parallel (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\webpack\\lib\\NormalModuleFactory.js:127:20)\n    at C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\async\\dist\\async.js:3874:9\n    at C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\async\\dist\\async.js:473:16\n    at iteratorCallback (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\async\\dist\\async.js:1048:13)\n    at C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\async\\dist\\async.js:958:16\n    at C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\async\\dist\\async.js:3871:13\n    at resolvers.normal.resolve (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\webpack\\lib\\NormalModuleFactory.js:119:22)\n    at onError (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\enhanced-resolve\\lib\\Resolver.js:65:10)\n    at loggingCallbackWrapper (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at runAfter (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\enhanced-resolve\\lib\\Resolver.js:158:4)\n    at innerCallback (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\enhanced-resolve\\lib\\Resolver.js:146:3)\n    at loggingCallbackWrapper (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at next (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\tapable\\lib\\Tapable.js:252:11)\n    at C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\enhanced-resolve\\lib\\UnsafeCachePlugin.js:40:4\n    at loggingCallbackWrapper (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at runAfter (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\enhanced-resolve\\lib\\Resolver.js:158:4)\n    at innerCallback (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\enhanced-resolve\\lib\\Resolver.js:146:3)\n    at loggingCallbackWrapper (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at next (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\tapable\\lib\\Tapable.js:252:11)\n    at innerCallback (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\enhanced-resolve\\lib\\Resolver.js:144:11)\n    at loggingCallbackWrapper (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at next (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\tapable\\lib\\Tapable.js:249:35)\n    at resolver.doResolve.createInnerCallback (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\enhanced-resolve\\lib\\DescriptionFilePlugin.js:44:6)\n    at loggingCallbackWrapper (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at afterInnerCallback (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\enhanced-resolve\\lib\\Resolver.js:168:10)\n    at loggingCallbackWrapper (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at next (C:\\xampp\\htdocs\\proyectos\\catchef\\node_modules\\tapable\\lib\\Tapable.js:252:11)");
 
 /***/ })
 /******/ ]);

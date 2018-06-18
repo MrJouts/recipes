@@ -13,6 +13,9 @@
 		<a class="nav-link" href="{{ route('recetas.index') }}" role="tab" aria-selected="false">
 			<i class="fas fa-cog"></i> Configuración
 		</a>
+		<a class="nav-link" href="{{ route('usuarios.index') }}" role="tab" aria-selected="false">
+			<i class="fas fa-users"></i> Usuarios
+		</a>
 	</div>
 	
 </nav>

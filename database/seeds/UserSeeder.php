@@ -15,16 +15,71 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Emiliano',
             'email' => 'emi@davinci.com',
+            'nivel' => 'admin',
+            'estado' => 'activo',
             'password' => \Hash::make('123123')
         ]);
         User::create([
             'name' => 'Santiago',
             'email' => 'santi@davinci.com',
+            'nivel' => 'user',
+            'estado' => 'activo',
             'password' => \Hash::make('123456')
         ]);
     	User::create([
-    		'name' => 'Francis',
-    		'email' => 'fran@davinci.com',
+    		'name' => 'Eduardo Jose Gutierrez',
+    		'email' => 'edu_lobo_1977@altavista.com',
+    		'nivel' => 'user',
+    		'estado' => 'activo',
+    		'password' => \Hash::make('123321')
+    	]);
+    	User::create([
+    		'name' => 'Blanca Barragan',
+    		'email' => 'blanca_2002@yahoo.com',
+    		'nivel' => 'user',
+    		'estado' => 'inactivo',
+    		'password' => \Hash::make('123321')
+    	]);
+    	User::create([
+    		'name' => 'Sonia Esperanza',
+    		'email' => 'sonia.esperanza@gmail.com',
+    		'nivel' => 'user',
+    		'estado' => 'activo',
+    		'password' => \Hash::make('123321')
+    	]);
+    	User::create([
+    		'name' => 'Victor Ramirez',
+    		'email' => 'victor.r.1974@gmail.com',
+    		'nivel' => 'user',
+    		'estado' => 'activo',
+    		'password' => \Hash::make('123321')
+    	]);
+    	User::create([
+    		'name' => 'Fabiana Godoy ',
+    		'email' => 'fabby_godoy@yahoo.com',
+    		'nivel' => 'user',
+    		'estado' => 'activo',
+    		'password' => \Hash::make('123321')
+    	]);
+    	User::create([
+    		'name' => 'Marisela Navas',
+    		'email' => 'marinavas1986@gmail.com',
+    		'nivel' => 'user',
+    		'estado' => 'activo',
+    		'password' => \Hash::make('123321')
+    	]);
+    	User::create([
+    		'name' => 'Farida Hussene',
+    		'email' => 'frida.hussene@terra.com',
+    		'nivel' => 'user',
+    		'estado' => 'activo',
+    		'password' => \Hash::make('123321')
+    	]);
+    	User::create([
+    		'name' => 'Flavio Chavez',
+    		'email' => 'flaflafla2014@yahoo.com.ar',
+    		'nivel' => 'user',
+    		'estado' => 'activo',
     		'password' => \Hash::make('123321')
     	]);
     }
