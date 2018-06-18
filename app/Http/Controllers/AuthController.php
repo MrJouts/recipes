@@ -23,6 +23,9 @@ class AuthController extends Controller
 
 		$input = $request->input();
 
+		$input['nivel'] = 'user';
+		$input['estado'] = 'activo';
+
 		$input['password'] = \Hash::make($input['password']);
 		$user = User::create($input);
 

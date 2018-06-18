@@ -36,7 +36,7 @@ class RecetaRepository implements RepositoryContract
 	public function withAllRelationships()
 	{
 		//return Receta::with('director')->get();
-		return Receta::with('categoria')->latest()->get();
+		return Receta::with('categoria', 'usuario')->latest()->get();
 	}
 
 	/**

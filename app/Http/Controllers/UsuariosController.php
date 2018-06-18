@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Usuario;
+//use App\Models\Usuario;
+use App\User;
 
 class UsuariosController extends Controller
 {
@@ -14,7 +15,7 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        $usuarios = Usuario::get();
+        $usuarios = User::get();
         return view('cpanel.usuarios.index', compact('usuarios'));
     }
 

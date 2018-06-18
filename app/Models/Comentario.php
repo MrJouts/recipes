@@ -13,14 +13,20 @@ class Comentario extends Model
 	protected $primaryKey = "id_comentario";
 
 	/** @var array Los campos que se pueden cargar de manera masiva. */
-	protected $fillable = ['comentario', 'id_receta'];
+	protected $fillable = ['comentario', 'id_receta', 'id_usuario'];
 
   /** @var array Las reglas de la validación. */
   public static $rules = [
     'comentario' => 'required|min:3'
   ];
-	public function receta() 
+
+	public function receta()
 	{
 		return $this->belongsTo(Receta::class, 'id_receta', 'id_receta');
+	}
+
+	public function usuario()
+	{
+		return $this->belongsTo(Usuario::class, 'id_usuario', 'id');
 	}
 }

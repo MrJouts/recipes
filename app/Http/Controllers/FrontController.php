@@ -29,9 +29,9 @@ class FrontController extends Controller
    */
   public function showFrontRecetas($receta)
   {
-    $categorias = Categoria::all();
-    $receta = Receta::with('comentarios')->find($receta);
-    return view('recetasShow', compact('receta', 'categorias'));
+    $receta = Receta::find($receta);
+
+    return view('recetasShow', compact('receta'));
   }
 
   /**
@@ -46,8 +46,6 @@ class FrontController extends Controller
     $recetasPopulares = Receta::with('categoria')->first()->take(4)->get();
     $recetaDelDia = Receta::with('categoria')->find(9);
     $categorias = Categoria::all();
-
-    //dd($categorias);
 
     return view('home', compact('ultimasRecetas', 'recetasPopulares', 'recetaDelDia', 'categorias'));
   }
@@ -64,8 +62,6 @@ class FrontController extends Controller
     $recetasPopulares = Receta::with('categoria')->first()->take(4)->get();
     $recetaDelDia = Receta::with('categoria')->find(9);
     $categorias = Categoria::all();
-
-    //dd($categorias);
 
     return view('home', compact('ultimasRecetas', 'recetasPopulares', 'recetaDelDia', 'categorias'));
   }

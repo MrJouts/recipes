@@ -36,8 +36,8 @@ class ComentariosController extends Controller
      */
     public function store(Receta $receta)
     {
-
       $comentario = request();
+      $comentario['id_usuario'] = auth()->id();
 
       $comentario->validate(Comentario::$rules, [
         'comentario.required' => 'El comentario no puede estar vacío.',

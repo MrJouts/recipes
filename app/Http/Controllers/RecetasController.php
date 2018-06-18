@@ -19,7 +19,7 @@ class RecetasController extends Controller
 
   /**
    * Trae el repositorio de recetas
-   * 
+   *
    * @param RecetaRepository $repoReceta
    */
   public function __construct(RecetaRepository $repoReceta)
@@ -37,7 +37,6 @@ class RecetasController extends Controller
     //$recetas = Receta::with('categoria')->latest()->get();
     $recetas = $this->repoReceta->withAllRelationships();
 
-    //dd($recetas->get(7)->id_categoria);
     return view('cpanel.recetas.index', compact('recetas'));
   }
 
@@ -76,17 +75,19 @@ class RecetasController extends Controller
     if($request->hasFile('img_src')) {
       $filepath = $request->file('img_src')->store('img');
       $inputData['img_src'] = $filepath;
-    }  
+    }
+
+    $inputData['id_usuario'] = auth()->id();
 
     Receta::create($inputData);
 
     return redirect()->route('recetas.index')
-    ->with(
-      [
-        'status' => 'La receta <b>' . $inputData['titulo'] . '</b> fue creada exitosamente.', 
-        'class' => 'success'
-      ]
-    );
+      ->with(
+        [
+          'status' => 'La receta <b>' . $inputData['titulo'] . '</b> fue creada exitosamente.',
+          'class' => 'success'
+        ]
+      );
 
   }
 
@@ -115,8 +116,8 @@ class RecetasController extends Controller
     $receta = Receta::find($id);
     $categorias = Categoria::all();
 
-    return view( 
-      'cpanel.recetas.edit', 
+    return view(
+      'cpanel.recetas.edit',
       compact('receta', 'categorias')
     );
   }
@@ -156,12 +157,12 @@ class RecetasController extends Controller
     }
 
     return redirect()->route('recetas.index')
-    ->with(
-      [
-        'status' => 'La receta <b>' . $receta->titulo . '</b> fue editada exitosamente.', 
-        'class' => 'warning'
-      ]
-    );
+      ->with(
+        [
+          'status' => 'La receta <b>' . $receta->titulo . '</b> fue editada exitosamente.',
+          'class' => 'warning'
+        ]
+      );
 
   }
 
@@ -197,13 +198,13 @@ class RecetasController extends Controller
     $receta->delete();
 
     return redirect()->route('recetas.index')
-    ->with(
-      [
-        'status' => 'La receta <b>' . $receta->titulo . '</b> fue eliminada exitosamente.', 
-        'class' => 'danger'
-      ]
-    );
+      ->with(
+        [
+          'status' => 'La receta <b>' . $receta->titulo . '</b> fue eliminada exitosamente.',
+          'class' => 'danger'
+        ]
+      );
 
   }
-  
+
 }

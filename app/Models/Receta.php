@@ -13,7 +13,7 @@ class Receta extends Model
   protected $primaryKey = "id_receta";
 
   /** @var array Los campos que se pueden cargar de manera masiva. */
-  protected $fillable = ['img_src', 'titulo', 'preparacion', 'ingredientes', 'id_categoria'];
+  protected $fillable = ['img_src', 'titulo', 'preparacion', 'ingredientes', 'id_categoria', 'id_usuario'];
   //protected $guarded = [];
 
   /** @var array Las reglas de la validación. */
@@ -35,14 +35,20 @@ class Receta extends Model
   public function categoria()
   {
     return $this->belongsTo(Categoria::class, 'id_categoria', 'id_categoria');
-  } 
+  }
 
   public function comentarios()
   {
     return $this->hasMany(Comentario::class, 'id_receta', 'id_receta');
-  } 
+  }
 
-  public function agregarComentario($comentario) {
+  public function agregarComentario($comentario)
+  {
     $this->comentarios()->create(compact('comentario'));
+  }
+
+  public function usuario()
+  {
+    return $this->belongsTo(Usuario::class, 'id_usuario', 'id');
   }
 }
