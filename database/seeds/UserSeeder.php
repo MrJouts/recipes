@@ -36,6 +36,7 @@ class UserSeeder extends Seeder
     	User::create([
     		'name' => 'Blanca Barragan',
     		'email' => 'blanca_2002@yahoo.com',
+    		'avatar' => 'avatar/blanca.jpg',
     		'nivel' => 'user',
     		'estado' => 'inactivo',
     		'password' => \Hash::make('123321')
@@ -43,6 +44,7 @@ class UserSeeder extends Seeder
     	User::create([
     		'name' => 'Sonia Esperanza',
     		'email' => 'sonia.esperanza@gmail.com',
+    		'avatar' => 'avatar/sonia.jpg',
     		'nivel' => 'user',
     		'estado' => 'activo',
     		'password' => \Hash::make('123321')
@@ -64,6 +66,7 @@ class UserSeeder extends Seeder
     	User::create([
     		'name' => 'Marisela Navas',
     		'email' => 'marinavas1986@gmail.com',
+    		'avatar' => 'avatar/marisela.jpg',
     		'nivel' => 'user',
     		'estado' => 'activo',
     		'password' => \Hash::make('123321')
@@ -78,6 +81,7 @@ class UserSeeder extends Seeder
     	User::create([
     		'name' => 'Flavio Chavez',
     		'email' => 'flaflafla2014@yahoo.com.ar',
+    		'avatar' => 'avatar/flavio.jpg',
     		'nivel' => 'user',
     		'estado' => 'activo',
     		'password' => \Hash::make('123321')

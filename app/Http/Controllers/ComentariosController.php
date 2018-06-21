@@ -34,19 +34,21 @@ class ComentariosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Receta $receta)
+    public function store(Request $request, $id)
     {
-      $comentario = request();
-      $comentario['id_usuario'] = auth()->id();
 
-      $comentario->validate(Comentario::$rules, [
-        'comentario.required' => 'El comentario no puede estar vacío.',
-        'comentario.min' => 'El comentario de la receta debe tener al menos :min caracteres.'
-      ]);
+        $inputData = $request->all();
+        $inputData['id_usuario'] = auth()->id();
+        $inputData['id_receta'] = $id;
 
-      $receta->agregarComentario(request('comentario'));
+        $request->validate(Comentario::$rules, [
+            'comentario.required' => 'El comentario no puede estar vacío.',
+            'comentario.min' => 'El comentario de la receta debe tener al menos :min caracteres.'
+        ]);
 
-      return back();
+        Comentario::create($inputData);
+
+        return back();
     }
 
     /**
@@ -93,4 +95,4 @@ class ComentariosController extends Controller
     {
         //
     }
-  }
+}

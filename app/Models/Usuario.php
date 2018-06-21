@@ -9,13 +9,23 @@ class Usuario extends Model
     /** @var string El nombre de la tabla */
     protected $table = "users";
 
-  public function recetas()
-  {
-    return $this->hasMany(Receta::class, 'id_usuario', 'id' );
-  }
+    /** @var array Los campos que se pueden cargar de manera masiva. */
+    protected $fillable = ['name', 'avatar', 'nivel', 'estado', 'password'];
 
-  public function comentarios()
-  {
-    return $this->hasMany(Comentario::class, 'id_usuario', 'id');
-  }
+    /** @var array Las reglas de la validación. */
+    public static $rules = [
+        'name' => 'required|min:3',
+        'avatar' => 'sometimes|image'
+    ];
+
+
+    public function recetas()
+    {
+        return $this->hasMany(Receta::class, 'id_usuario', 'id' );
+    }
+
+    public function comentarios()
+    {
+        return $this->hasMany(Comentario::class, 'id_usuario', 'id');
+    }
 }

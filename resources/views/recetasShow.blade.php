@@ -48,7 +48,8 @@
 							<ul class="list-unstyled">
 								@foreach ($receta->comentarios as $comentario)
 									<li class="media mb-3">
-										<img class="mr-3" src="https://placem.at/people?w=64&h=64" alt="Generic placeholder image">
+										<img style="width:64px; height: 64px" class="img-fluid mr-3" src="{{ url('storage/' . $comentario->usuario->avatar) }}" alt="">
+
 										<div class="media-body">
 											<h4>{{ $comentario->usuario->name }}</h4>
 

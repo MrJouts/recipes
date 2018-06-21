@@ -88,7 +88,7 @@ class RecetasController extends Controller
           'class' => 'success'
         ]
       );
-
+    
   }
 
   /**

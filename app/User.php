@@ -27,4 +27,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /** @var array Las reglas de la validación. */
+    public static $rules = [
+        'name' => 'required',
+        'img_src' => 'sometimes|image'
+    ];
+
+
 }
