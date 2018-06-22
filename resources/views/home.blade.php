@@ -23,7 +23,7 @@ Catchef
 		<div class="row">
 			<div class="col-12">
 				
-				<h2 class="my-4">Últimas recetas</h2>
+				<h2 class="section-title">Últimas recetas</h2>
 
 			</div>
 			@foreach ($ultimasRecetas as $receta)
@@ -55,7 +55,7 @@ Catchef
 		<div class="row">
 			<div class="col-12">
 				
-				<h2 class="my-4">Recetas más populares</h2>
+				<h2 class="section-title">Recetas más populares</h2>
 			</div>
 			@foreach ($recetasPopulares as $receta)
 
@@ -85,7 +85,7 @@ Catchef
 		<div class="row">
 
 			<div class="col-8 mb-4">	
-				<h2 class="my-4">Receta de día</h2>
+				<h2 class="section-title">Receta de día</h2>
 				<div class="card">
 					<div class="grid">
 						<a href="{{ route( 'recetas.showFrontRecetas', ['id' => $recetaDelDia->id_receta] ) }}">
@@ -106,7 +106,7 @@ Catchef
 			</div>	
 
 			<div class="col-4">
-				<h2 class="my-4">Categorías</h2>
+				<h2 class="section-title">Categorías</h2>
 				<ul class="list-group">
 					@foreach ($categorias as $categoria)
 					<li class="list-group-item">

@@ -51,10 +51,6 @@
 							@endif
 						</div>
 
-						<div class="form-group">
-							<label for="password">Contraseña</label>
-							<input type="password" class="form-control" id="password">
-						</div>
 						<button type="submit" class="btn btn-primary">Actualizar perfil</button>
 					</form>
 				</div>

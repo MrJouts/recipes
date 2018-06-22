@@ -39,7 +39,7 @@ Catchef - Cpanel - Categorías
 			</div>
 
 			<div class="col-6">
-
+				<p class="mb-2">Todas las categorias</p>
 				<table class="table">
 					<thead>
 						<tr>

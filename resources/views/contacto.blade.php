@@ -21,7 +21,7 @@ Catchef - Contacto
 				<img class="img-fluid" src="{{ url('/img/cat-chef.jpg') }}" alt="cat chef"/>
 			</div>
 			<div class="col-6">
-				<h2 class="mb-3">Una comunidad diferente, igual a vos</h2>
+				<h2 class="section-title">Una comunidad diferente, igual a vos</h2>
 				<p>La gastronomía de Argentina combina influjos de la comida criolla, la nativa (a la cual pertenecen el mate y la mayoría de las comidas elaboradas con maíz, porotos, papa y/o mandioca como base principal), la africana subsahariana, la española y la italiana.</p>
 				<p>Un factor determinante para su gastronomía es que Argentina resulta ser uno de los mayores productores agrícolas del planeta. Es un gran productor de trigo, poroto, choclo o maíz, carne (en especial vacuna), leche y, desde los años 1970, también gran productor de soja, aunque esta leguminosa no ha logrado la aceptación popular.</p>
 				<p>De modo semejante, las enormes producciones trigueras hacen que el pan más común sea el pan blanco de harina de trigo y explican en gran medida el éxito de ciertas comidas de origen italiano que la utilizan.</p>
@@ -30,7 +30,7 @@ Catchef - Contacto
 
 		<div class="row my-5">
 			<div class="col-6">
-				<h2>Tu opinion nos interesa</h2>
+				<h2 class="section-title">Tu opinion nos interesa</h2>
 				<form>
 					<div class="form-group">
 						<label for="nombre">Nombre</label>

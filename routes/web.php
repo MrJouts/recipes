@@ -77,6 +77,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/cpanel', [
         'as' => 'recetas.index',
         'uses' => 'RecetasController@index',
+        'middleware' => 'admin'
     ]);
 
 // Recetas
@@ -84,6 +85,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/cpanel/recetas', [
         'as' => 'recetas.index',
         'uses' => 'RecetasController@index',
+        'middleware' => 'admin'
     ]);
 
     Route::get('/cpanel/recetas/crear', [

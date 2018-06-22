@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\Repositories\Contracts\RecetaRepository;
 use Illuminate\Support\Facades\Input;
 use Storage;
+use Session;
 
 class RecetasController extends Controller
 {
@@ -35,6 +36,7 @@ class RecetasController extends Controller
   public function index()
   {
     //$recetas = Receta::with('categoria')->latest()->get();
+
     $recetas = $this->repoReceta->withAllRelationships();
 
     return view('cpanel.recetas.index', compact('recetas'));

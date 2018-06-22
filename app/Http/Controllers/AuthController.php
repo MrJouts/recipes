@@ -54,6 +54,10 @@ class AuthController extends Controller
                 ->with('status', 'E-mail y/o password incorrectos.');
         }
 
+        if (auth()->user()->nivel == 'admin') {
+            \Session::put('admin', true);
+        }
+
         return redirect()->intended('cpanel/recetas');
     }
 
