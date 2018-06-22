@@ -24,6 +24,7 @@ Catchef
 			<div class="col-12">
 				
 				<h2 class="section-title">Últimas recetas</h2>
+				
 
 			</div>
 			@foreach ($ultimasRecetas as $receta)
