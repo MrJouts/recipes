@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Receta;
 use App\Models\Categoria;
 use App\Models\Comentario;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Input;
 use Storage;
 use Session;
 
-class RecetasController extends Controller
+class RecetasApiController extends Controller
 {
 
   /** @var RecetaRepository */
@@ -35,24 +36,8 @@ class RecetasController extends Controller
    */
   public function index()
   {
-    //$recetas = Receta::with('categoria')->latest()->get();
-
     $recetas = $this->repoReceta->withAllRelationships();
-
-    return view('cpanel.recetas.index', compact('recetas'));
-  }
-
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function create()
-  {
-    $categorias = Categoria::all();
-    //$categorias = $this->repoCategoria->all();
-
-    return view('cpanel.recetas.create', compact('categorias'));
+    return response()->json($recetas);
   }
 
   /**
@@ -63,9 +48,7 @@ class RecetasController extends Controller
    */
   public function store(Request $request)
   {
-
     $inputData = $request->all();
-
 
     $request->validate(Receta::$rules, [
       'titulo.required' => 'El título de la receta no puede estar vacío.',
@@ -78,23 +61,19 @@ class RecetasController extends Controller
     if($request->hasFile('img_src')) {
       $filepath = $request->file('img_src')->store('img');
       $inputData['img_src'] = $filepath;
-    } 
+    }
     else {
-      $inputData['img_src'] = null;
+      $inputData['img_src'] = 'test.jpg';
     }
 
     $inputData['id_usuario'] = auth()->id();
 
-    Receta::create($inputData);
+    $nuevaReceta = Receta::create($inputData);
 
-    return redirect()->route('recetas.index')
-      ->with(
-        [
-          'status' => 'La receta <b>' . $inputData['titulo'] . '</b> fue creada exitosamente.',
-          'class' => 'success'
-        ]
-      );
-    
+    return response()->json([
+      'success' => true,
+      'datos' => $nuevaReceta
+    ]);    
   }
 
   /**
@@ -163,12 +142,12 @@ class RecetasController extends Controller
     }
 
     return redirect()->route('recetas.index')
-      ->with(
-        [
-          'status' => 'La receta <b>' . $receta->titulo . '</b> fue editada exitosamente.',
-          'class' => 'warning'
-        ]
-      );
+    ->with(
+      [
+        'status' => 'La receta <b>' . $receta->titulo . '</b> fue editada exitosamente.',
+        'class' => 'warning'
+      ]
+    );
 
   }
 
@@ -204,12 +183,12 @@ class RecetasController extends Controller
     $receta->delete();
 
     return redirect()->route('recetas.index')
-      ->with(
-        [
-          'status' => 'La receta <b>' . $receta->titulo . '</b> fue eliminada exitosamente.',
-          'class' => 'danger'
-        ]
-      );
+    ->with(
+      [
+        'status' => 'La receta <b>' . $receta->titulo . '</b> fue eliminada exitosamente.',
+        'class' => 'danger'
+      ]
+    );
 
   }
 
