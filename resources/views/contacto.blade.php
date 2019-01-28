@@ -9,10 +9,8 @@ Catchef - Contacto
 <section id="contacto-1">
 	<div class="container">
 		<div class="row">
-			<div class="col">
-				
+			<div class="col">				
 				<h1 class="text-center m-5 title">Contacto</h1>
-
 			</div>
 		</div>
 

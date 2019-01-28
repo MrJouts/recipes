@@ -33,15 +33,15 @@ Recipes - Contacto
 					</div>
 
 					<div class="form-group">
-						<label for="email">E-mail: </label>
-						<input type="text" id="email" name="email" class="form-control" value="{{ old('email') }}">
+						<label for="email">Correo electrónico: </label>
+						<input type="email" id="email" name="email" class="form-control" value="{{ old('email') }}">
 						@if($errors->has('email'))
 						<small class="text-danger">{{ $errors->first('email') }}</small>
 						@endif
 					</div>
 
 					<div class="form-group">
-						<label for="password">Password: </label>
+						<label for="password">Contraseña: </label>
 						<input type="password" id="password" name="password" class="form-control">
 						@if($errors->has('password'))
 						<small class="text-danger">{{ $errors->first('password') }}</small>
@@ -49,11 +49,11 @@ Recipes - Contacto
 					</div>
 
 					<div class="form-group">
-						<label for="password_confirmation">Confirmar Password: </label>
+						<label for="password_confirmation">Confirmar contraseña: </label>
 						<input type="password" id="password_confirmation" name="password_confirmation" class="form-control">
 					</div>
 
-					<button class="btn btn-primary">Registrar</button>
+					<button class="btn btn-primary">Registrarme</button>
 
 				</form>
 			</div>

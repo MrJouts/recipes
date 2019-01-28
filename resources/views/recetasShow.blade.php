@@ -47,7 +47,12 @@ Catchef - {{ $receta->titulo }}
 					<ul class="list-unstyled comentarios-list">
 						@foreach ($receta->comentarios as $comentario)
 						<li class="media">
-							<img class="img-fluid mr-3 comentario-avatar" src="{{ url('storage/' . $comentario->usuario->avatar) }}" alt="">
+							
+							@if (!$comentario->usuario->avatar)
+							<img class="img-fluid mr-3 comentario-avatar" src="{{ url('img/avatar.png') }}" alt="{{ $comentario->usuario->name }}">
+							@else
+							<img class="img-fluid mr-3 comentario-avatar" src="{{ url('storage/' . $comentario->usuario->avatar) }}" alt="{{ $comentario->usuario->name }}">
+							@endif
 
 							<div class="media-body">
 								<span class="comentario-user-name">{{ $comentario->usuario->name }}</span>
@@ -81,8 +86,8 @@ Catchef - {{ $receta->titulo }}
 						<button type="submit" class="btn btn-primary">Comentar</button>
 					</form>
 
-						@else
-						<p>Para dejar un comentario debes <a href="{{url('login')}}">iniciar sesion</a></p>
+					@else
+					<p>Para dejar un comentario debes <a href="{{url('login')}}">iniciar sesion</a></p>
 					@endif
 
 				</div>

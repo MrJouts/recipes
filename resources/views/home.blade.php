@@ -22,14 +22,10 @@ Catchef
 
 		<div class="row">
 			<div class="col-12">
-				
 				<h2 class="section-title">Últimas recetas</h2>
-				
-
 			</div>
 			@foreach ($ultimasRecetas as $receta)
-
-			<div class="col-4 mb-4">	
+			<div class="col-4 mb-4">
 				<div class="card">
 					<div class="grid">
 						<a href="{{ route( 'recetas.showFrontRecetas', ['id' => $receta->id_receta] ) }}">
@@ -46,11 +42,9 @@ Catchef
 							{{ $receta->created_at->diffForHumans() }}
 						</span>
 					</div>
-				</div>						
-			</div>	
-
+				</div>
+			</div>
 			@endforeach
-
 		</div>
 		
 		<div class="row">

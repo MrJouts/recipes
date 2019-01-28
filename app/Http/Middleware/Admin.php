@@ -18,9 +18,8 @@ class Admin
     public function handle($request, Closure $next)
     {
         if(Auth::user()->nivel != 'admin') {
-            return redirect()->route('recetas');
+            return redirect()->route('recetas.showFrontHome');
         }
-
         return $next($request);
     }
 }

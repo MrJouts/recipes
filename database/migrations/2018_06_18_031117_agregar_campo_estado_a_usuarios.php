@@ -16,7 +16,7 @@ class AgregarCampoEstadoAUsuarios extends Migration
         Schema::table('users', function(Blueprint $table) {
             $table->string('nivel');
             $table->string('estado');
-            $table->string('avatar')->default('avatar/avatar-default.png');
+            $table->string('avatar')->nullable();
         });
     }
 

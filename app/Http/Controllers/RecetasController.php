@@ -66,11 +66,10 @@ class RecetasController extends Controller
 
     $inputData = $request->all();
 
-
     $request->validate(Receta::$rules, [
       'titulo.required' => 'El título de la receta no puede estar vacío.',
       'titulo.min' => 'El título de la receta debe tener al menos :min caracteres.',
-      'img_src.required' => 'Debés ingresar una imagen de tu receta',
+      'img_src.image' => 'El archivo ingresado no es válido. Debés ingresar un archivo .jpg o .png.',
       'ingredientes.required' => 'Debés ingresar los ingredientes',
       'preparacion.required' => 'Debés ingresar la preparación'
     ]);
@@ -88,13 +87,12 @@ class RecetasController extends Controller
     Receta::create($inputData);
 
     return redirect()->route('recetas.index')
-      ->with(
-        [
-          'status' => 'La receta <b>' . $inputData['titulo'] . '</b> fue creada exitosamente.',
-          'class' => 'success'
-        ]
-      );
-    
+    ->with(
+      [
+        'status' => 'La receta <b>' . $inputData['titulo'] . '</b> fue creada exitosamente.',
+        'class' => 'success'
+      ]
+    );
   }
 
   /**
@@ -141,6 +139,7 @@ class RecetasController extends Controller
     $request->validate(Receta::$rules_edit, [
       'titulo.required' => 'El título de la receta no puede estar vacío.',
       'titulo.min' => 'El título de la receta debe tener al menos :min caracteres.',
+      'img_src.image' => 'El archivo ingresado no es válido. Debés ingresar un archivo .jpg o .png.',
       'ingredientes.required' => 'Debés ingresar los ingredientes',
       'preparacion.required' => 'Debés ingresar la preparación'
     ]);
@@ -163,12 +162,12 @@ class RecetasController extends Controller
     }
 
     return redirect()->route('recetas.index')
-      ->with(
-        [
-          'status' => 'La receta <b>' . $receta->titulo . '</b> fue editada exitosamente.',
-          'class' => 'warning'
-        ]
-      );
+    ->with(
+      [
+        'status' => 'La receta <b>' . $receta->titulo . '</b> fue editada exitosamente.',
+        'class' => 'warning'
+      ]
+    );
 
   }
 
@@ -204,12 +203,12 @@ class RecetasController extends Controller
     $receta->delete();
 
     return redirect()->route('recetas.index')
-      ->with(
-        [
-          'status' => 'La receta <b>' . $receta->titulo . '</b> fue eliminada exitosamente.',
-          'class' => 'danger'
-        ]
-      );
+    ->with(
+      [
+        'status' => 'La receta <b>' . $receta->titulo . '</b> fue eliminada exitosamente.',
+        'class' => 'danger'
+      ]
+    );
 
   }
 

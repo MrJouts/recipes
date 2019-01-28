@@ -1,19 +1,18 @@
 <div class="container">
-
 	<footer class="pt-4 my-md-5 pt-md-5 border-top">
 		<div class="row">
 			<div class="col-12 col-md">
 				<span class="navbar-brand" href="{{ url('/') }}">
-					<i class="fab fa-github"></i>  <b>CAT</b>Chef
+					<i class="fab fa-github"></i>  <b>CAT</b>CHEF
 				</span>
-				<small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+				<small class="d-block mb-3 text-muted">&copy; 2018-2019</small>
 			</div>
 			<div class="col-6 col-md">
 				<h5>Últimas recetas</h5>
 				<ul class="list-unstyled text-small">
-					<li><a class="text-muted" href="#">Crema helada de menta con chocolate</a></li>
-					<li><a class="text-muted" href="#">Focaccia mediterránea rellena de mozzarella</a></li>
-					<li><a class="text-muted" href="#">Pechugas de pollo al horno con croute de pan rallado</a></li>
+					<li><a class="text-muted" href="{{ url('recetas/1') }}">Crema helada de menta con chocolate</a></li>
+					<li><a class="text-muted" href="{{ url('recetas/2') }}">Focaccia mediterránea rellena de mozzarella</a></li>
+					<li><a class="text-muted" href="{{ url('recetas/3') }}">Pechugas de pollo al horno con croute de pan rallado</a></li>
 				</ul>
 			</div>
 			<div class="col-6 col-md">
@@ -36,5 +35,4 @@
 			</div>
 		</div>
 	</footer>
-
 </div>

@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Emiliano',
             'email' => 'emi@davinci.com',
+            'avatar' => 'avatar/emi.jpg',
             'nivel' => 'admin',
             'estado' => 'activo',
             'password' => \Hash::make('123123')

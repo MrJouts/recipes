@@ -11,8 +11,7 @@ Catchef - Cpanel - Categorías
 
 		<div class="row">
 			<div class="col">
-				<h1 class="my-4">Lista de categorías</h1>
-				
+				<h1 class="my-4">Lista de categorías</h1>				
 				@if(Session::has('status'))			
 				@component('components.alert', ['tipo' => 'success'])
 				{!! Session::get('status') !!}
@@ -20,8 +19,8 @@ Catchef - Cpanel - Categorías
 				@endif
 			</div>
 		</div>
-		<div class="row">
-			
+
+		<div class="row">			
 
 			<div class="col-4">
 				<form method="POST" action="{{ route('categorias.store') }}">
@@ -53,7 +52,7 @@ Catchef - Cpanel - Categorías
 						@foreach($categorias as $categoria)
 
 						<tr>
-							<th scope="row">1</th>
+							<th scope="row">{{ $categoria->id_categoria }}</th>
 							<td>{{ $categoria->nombre }}</td>
 							<td>
 								

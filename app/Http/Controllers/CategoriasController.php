@@ -27,11 +27,10 @@ class CategoriasController extends Controller
   public function store(Request $request)
   {
     $inputData = $request->all();
-
     $request->validate(Categoria::$rules, [
-      'nombre.required' => 'El nombre de la categoría no puede estar vacío.'
+      'nombre.required' => 'El nombre de la categoría no puede estar vacío.',
+      'nombre.min' => 'El nombre de la categoría debe tener al menos :min caracteres.'
     ]);
-
     Categoria::create($inputData);
 
     return redirect()->route('categorias.index');
@@ -63,13 +62,12 @@ class CategoriasController extends Controller
   public function update(Request $request, $id)
   {
     $request->validate(Categoria::$rules, [
-      'nombre.required' => 'El nombre de la categoría no puede estar vacío.'
+      'nombre.required' => 'El nombre de la categoría no puede estar vacío.',
+      'nombre.min' => 'El nombre de la categoría debe tener al menos :min caracteres.'
     ]);
 
     $inputData = $request->input();
-
     $categoria = Categoria::find($id);
-
     $categoria->update($inputData);
 
     return redirect()->route('categorias.index')
@@ -97,13 +95,10 @@ class CategoriasController extends Controller
    */
   public function destroy($id)
   {
-
     $categoria = Categoria::find($id);
-
     $categoria->delete();
-
+    
     return redirect()->route('categorias.index')
     ->with('status', 'La categoria <b>' . $categoria->nombre . '</b> fue eliminada exitosamente.');
   }
-
 }

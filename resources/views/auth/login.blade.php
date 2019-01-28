@@ -22,14 +22,16 @@ Recipes - Login
 			<div class="col-6 m-auto">
 
 				@if(Session::has('status'))
-				<p class="text-danger m-auto mb-3">{{ Session::get('status') }}</p>
+				<div class="alert alert-danger mb-3" role="alert">
+					{{ Session::get('status') }}
+				</div>
 				@endif
 
-				<form method="POST" action="{{ route('auth.doLogin') }}">
+				<form method="post" action="{{ route('auth.doLogin') }}">
 					@csrf
 
 					<div class="form-group">
-						<label for="email">E-mail: </label>
+						<label for="email">Correo electrónico: </label>
 						<input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control">
 						@if($errors->has('email'))
 						<small class="text-danger">{{ $errors->first('email') }}</small>
@@ -37,7 +39,7 @@ Recipes - Login
 					</div>
 
 					<div class="form-group">
-						<label for="password">Password: </label>
+						<label for="password">Contraseña: </label>
 						<input type="password" name="password" id="password" class="form-control">
 						@if($errors->has('password'))
 						<small class="text-danger">{{ $errors->first('password') }}</small>
@@ -51,7 +53,5 @@ Recipes - Login
 		</div>
 	</div>
 </section>
-
-
 
 @endsection

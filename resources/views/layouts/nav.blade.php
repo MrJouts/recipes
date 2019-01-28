@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
 
-      <a class="navbar-brand" href="{{ url('/') }}">
-        <i class="fab fa-github"></i>  <b>CAT</b>Chef
-      </a>
+    <a class="navbar-brand" href="{{ url('/') }}">
+      <i class="fab fa-github"></i>  <b>CAT</b>CHEF
+    </a>
 
     <div class="collapse navbar-collapse" id="menu">
       <ul class="navbar-nav mr-auto">
@@ -35,10 +35,10 @@
 
         @else
 
-        <li class="nav-item active">
+        <li class="nav-item {{ Request::is('login') ? 'active' : '' }}">
           <a class="nav-link" href="{{ route('login') }}">Ingresar</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{ Request::is('registro') ? 'active' : '' }}">
           <a class="nav-link" href="{{ route('registro') }}">Registro</a>
         </li>
 

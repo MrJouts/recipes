@@ -9,7 +9,7 @@ Catchef - {{ $receta->titulo }}
 <section>
 	<div class="container-fluid container-cpanel">
 		<div class="row">
-			<div class="col-7">
+			<div class="col-7 col-xl-6">
 				
 				<div class="row">
 					<div class="col">
@@ -21,7 +21,8 @@ Catchef - {{ $receta->titulo }}
 							</a>
 						</div>
 						
-						<img class="img-fluid"  src="{{ url('/img/'. $receta->img_src) }}" alt="">
+						<img class="img-fluid" src="{{ url('storage/' . $receta->img_src) }}" alt="{{ $receta->titulo }}">
+
 						<h3 class="my-4">Ingredientes</h3>
 						<p>{!! $receta->ingredientes !!}</p>
 
@@ -39,4 +40,3 @@ Catchef - {{ $receta->titulo }}
 </section>
 
 @endsection
-

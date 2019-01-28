@@ -19,6 +19,17 @@ class AuthController extends Controller
             'name' => 'required|min:2|max:100',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+        ], [
+            'name.required' => 'El nombre no puede estar vacío.',
+            'name.min' => 'El nombre no puede tener menos de :min caracteres.',
+            'name.max' => 'El nombre no puede tener más de :max caracteres.',
+            'email.required' => 'El correo electrónico no puede estar vacío.',
+            'email.email' => 'El correo electrónico ingresado no es válido.',
+            'email.max' => 'El correo electrónico ingresado no puede tener más de :max caracteres',
+            'email.users' => 'El correo electrónico ingresado ya se encuentra en uso',
+            'password.required' => 'La contraseña no puede esta vacía',
+            'password.min' => 'La contraseña debe tener al menos :min caracteres',
+            'password.confirmed' => 'Las contraseñas ingresadas no coinciden'
         ]);
 
         $input = $request->input();
@@ -29,8 +40,10 @@ class AuthController extends Controller
         $input['password'] = \Hash::make($input['password']);
         $user = User::create($input);
 
-        return redirect()->route('login')
-            ->with('status', 'Usuario registrado con éxito!');
+        Auth::login($user);
+
+        return redirect()->route('recetas.showFrontHome')
+        ->with('status', 'Usuario registrado con éxito!');
     }
 
     public function showLogin()
@@ -41,17 +54,21 @@ class AuthController extends Controller
     public function doLogin(Request $request)
     {
         $request->validate([
-            'email' => 'required|max:255',
+            'email' => 'required|email',
             'password' => 'required|min:6',
+        ], [
+            'email.required' => 'El correo electrónico no puede estar vacío.',
+            'email.email' => 'El correo electrónico ingresado no es válido.',
+            'password.required' => 'La contraseña no puede esta vacía',
+            'password.min' => 'La contraseña debe tener al menos :min caracteres'
         ]);
 
         $input = $request->input();
 
         if(!Auth::attempt(['password' => $input['password'], 'email' => $input['email']])) {
-            // Tutti mal
             return redirect()->route('login')
-                ->withInput()
-                ->with('status', 'E-mail y/o password incorrectos.');
+            ->withInput()
+            ->with('status', 'Correo electrónico y/o contraseña incorrectos.');
         }
 
         if (auth()->user()->nivel == 'admin') {
@@ -65,49 +82,5 @@ class AuthController extends Controller
     {
         Auth::logout();
         return redirect('/');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-
-//        $request->validate(User::$rules, [
-//            'name.required' => 'El nombre no puede estar vacio',
-//            'img_src.image' => 'El archivo debe ser una imagen.'
-//        ]);
-
-        $inputData = $request->input();
-
-        $user = User::find($id);
-
-        //dd($request);
-
-        if($request->hasFile('img_src')) {
-            $imagenActual = $receta->img_src;
-            $filepath = $request->file('img_src')->store('img');
-            $inputData['img_src'] = $filepath;
-        }
-
-        $receta->update($inputData);
-
-        // Borramos la imagen luego del update.
-        if(isset($imagenActual) && !empty($imagenActual)) {
-            Storage::delete($imagenActual);
-        }
-
-        return redirect()->route('recetas.index')
-            ->with(
-                [
-                    'status' => 'La receta <b>' . $receta->titulo . '</b> fue editada exitosamente.',
-                    'class' => 'warning'
-                ]
-            );
-
     }
 }
