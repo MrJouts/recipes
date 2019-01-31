@@ -3,11 +3,26 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class RecetaApiTest extends TestCase
 {
+
+  use RefreshDatabase;
+
+  /** 
+   * Se agregan los seeders
+   *
+   */
+  public function setUp()
+  {
+    parent::setUp();
+    $this->artisan('db:seed');
+  }
+
   /**
    * A basic test example.
    *
@@ -61,16 +76,19 @@ class RecetaApiTest extends TestCase
    * @return void
    */
   public function testPuedoCrearUnaNuevaReceta()
-  {
-  	$response = $this->json('POST', '/api/recetas'. [
-  		'img_src' => null,
+  { 
+
+    Storage::fake('avatars');
+    $file = UploadedFile::fake()->image('imagen.jpg');
+
+  	$response = $this->json('POST', '/api/recetas', [
+  		'img_src' => $file,
   		'titulo' => 'test',
   		'preparacion' => 'preparacion test',
   		'ingredientes' => 'ingredientes test',
   		'id_categoria' => 1,
   		'id_usuario' => 1
   	]);
-
 
   	$response->assertStatus(200)->assertJson([
   		'success' => true
