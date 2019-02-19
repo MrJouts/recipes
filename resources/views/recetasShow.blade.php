@@ -37,7 +37,6 @@ Catchef - {{ $receta->titulo }}
 					<h2 class="mb-4">Preparación</h2>
 					{!! $receta->preparacion !!}
 				</div>
-
 				<div class="comentarios">
 
 					<h2 class="my-4">Comentarios</h2>

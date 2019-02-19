@@ -66,12 +66,19 @@ class RecetasApiController extends Controller
       $inputData['img_src'] = 'test.jpg';
     }
 
-    $inputData['id_usuario'] = auth()->id();
+    if (!isset($inputData['id_categoria'])) {
+      $inputData['id_categoria'] = 1;
+    }
+
+    if (!isset($inputData['id_usuario'])) {
+      $inputData['id_usuario'] = 1;
+    }
 
     $nuevaReceta = Receta::create($inputData);
 
     return response()->json([
       'success' => true,
+      'message' => 'receta creada',
       'datos' => $nuevaReceta
     ]);    
   }
@@ -84,27 +91,11 @@ class RecetasApiController extends Controller
    */
   public function show($receta)
   {
-    //$receta = Receta::find($id);
     $receta = $this->repoReceta->find($receta);
+    $receta->usuario;
+    $receta->comentarios;
 
-    return view('cpanel.recetas.show', compact('receta'));
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
-  public function edit($id)
-  {
-    $receta = Receta::find($id);
-    $categorias = Categoria::all();
-
-    return view(
-      'cpanel.recetas.edit',
-      compact('receta', 'categorias')
-    );
+    return response()->json($receta);
   }
 
   /**
@@ -136,32 +127,19 @@ class RecetasApiController extends Controller
 
     $receta->update($inputData);
 
+    $recetaUpdate = Receta::find($id);
+
     // Borramos la imagen luego del update.
     if(isset($imagenActual) && !empty($imagenActual)) {
       Storage::delete($imagenActual);
     }
 
-    return redirect()->route('recetas.index')
-    ->with(
-      [
-        'status' => 'La receta <b>' . $receta->titulo . '</b> fue editada exitosamente.',
-        'class' => 'warning'
-      ]
-    );
+    return response()->json([
+      'success' => true,
+      'message' => 'receta actualizada',
+      'datos' => $recetaUpdate
+    ]);
 
-  }
-
-  /**
-   * Confirm removing the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
-  public function confirmDestroy($id)
-  {
-    $receta = Receta::find($id);
-
-    return view('cpanel.recetas.confirm-destroy', compact('receta'));
   }
 
   /**
@@ -182,14 +160,10 @@ class RecetasApiController extends Controller
 
     $receta->delete();
 
-    return redirect()->route('recetas.index')
-    ->with(
-      [
-        'status' => 'La receta <b>' . $receta->titulo . '</b> fue eliminada exitosamente.',
-        'class' => 'danger'
-      ]
-    );
-
+    return response()->json([
+      'success' => true,
+      'message' => 'receta eliminada',
+      'datos' => $receta
+    ]);
   }
-
 }

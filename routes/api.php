@@ -19,4 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/recetas', 'Api\RecetasApiController@index');
 
+Route::get('/recetas/{receta}', 'Api\RecetasApiController@show');
+
 Route::post('/recetas', 'Api\RecetasApiController@store');
+
+Route::put('/recetas/{receta}/editar', 'Api\RecetasApiController@update');
+
+Route::delete('/recetas/{receta}/eliminar', 'Api\RecetasApiController@destroy');
