@@ -81,15 +81,54 @@ class RecetaApiTest extends TestCase
     Storage::fake('avatars');
     $file = UploadedFile::fake()->image('imagen.jpg');
 
-  	$response = $this->json('POST', '/api/recetas', [
-  		'img_src' => $file,
-  		'titulo' => 'test',
-  		'preparacion' => 'preparacion test',
-  		'ingredientes' => 'ingredientes test',
-  		'id_categoria' => 1,
-  		'id_usuario' => 1
-  	]);
+    $response = $this->json('POST', '/api/recetas', [
+      'img_src' => $file,
+      'titulo' => 'test',
+      'preparacion' => 'preparacion test',
+      'ingredientes' => 'ingredientes test',
+      'id_categoria' => 1,
+      'id_usuario' => 1
+    ]);
 
+    $response->assertStatus(200)->assertJson([
+      'success' => true
+    ]);
+  }
+
+  /**
+   * Se evalua si se puede realizar la actualuzación de una receta
+   *
+   * @return void
+   */
+  public function testPuedoActualizarUnaReceta()
+  { 
+
+    Storage::fake('avatars');
+    $file = UploadedFile::fake()->image('imagen.jpg');
+
+    $response = $this->json('PUT', '/api/recetas/1/editar', [
+      'img_src' => $file,
+      'titulo' => 'test',
+      'preparacion' => 'preparacion test',
+      'ingredientes' => 'ingredientes test',
+      'id_categoria' => 1,
+      'id_usuario' => 1
+    ]);
+
+    $response->assertStatus(200)->assertJson([
+      'success' => true
+    ]);
+  }
+
+  /**
+   * Se evalua si se puede eliminar una receta
+   *
+   * @return void
+   */
+  public function testPuedoEliminarUnaReceta()
+  { 
+    
+  	$response = $this->json('DELETE', '/api/recetas/1/eliminar');
   	$response->assertStatus(200)->assertJson([
   		'success' => true
   	]);
